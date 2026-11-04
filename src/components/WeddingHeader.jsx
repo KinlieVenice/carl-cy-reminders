@@ -12,7 +12,7 @@ export default function WeddingHeader({
   coupleName = "Carl & Cy",
   weddingDate = "November 26, 2026",
   onQuickAction,
-  quickActionLabel = "Reminders",
+  quickActionLabel = "Gift QR",
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -81,7 +81,7 @@ export default function WeddingHeader({
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 10px 24px 0;
+          padding: 10px 20px 4px;
         }
 
         .wh-logo {
@@ -89,48 +89,51 @@ export default function WeddingHeader({
           flex-direction: column;
           align-items: center;
           text-decoration: none;
-          flex: 1;
+          flex-shrink: 0;
+          padding: 0 8px;
         }
 
         .wh-name {
           font-family: 'Cormorant Garamond', serif;
           font-style: italic;
           font-weight: 300;
-          font-size: clamp(1.6rem, 5vw, 2.4rem);
+          font-size: clamp(1.65rem, 5vw, 2.4rem);
           color: #722F37;
           letter-spacing: 0.06em;
           line-height: 1;
-          text-shadow: 0 1px 8px rgba(0,0,0,0.2);
+          white-space: nowrap;
+          text-shadow: 0 1px 6px rgba(114,47,55,0.15);
           transition: color 0.3s ease, text-shadow 0.3s ease;
         }
 
         .wh-date {
           font-family: 'Jost', sans-serif;
           font-weight: 300;
-          font-size: 0.52rem;
-          letter-spacing: 0.38em;
+          font-size: 0.56rem;
+          letter-spacing: 0.34em;
           text-transform: uppercase;
           color: #6B7041;
           margin-top: 3px;
-          text-shadow: 0 1px 4px rgba(0,0,0,0.15);
-          transition: color 0.3s ease, text-shadow 0.3s ease;
+          white-space: nowrap;
+          transition: color 0.3s ease;
         }
 
         .wh-rsvp-top {
           font-family: 'Jost', sans-serif;
           font-weight: 400;
-          font-size: 0.6rem;
+          font-size: 0.62rem;
           letter-spacing: 0.22em;
           text-transform: uppercase;
           color: #fffdf8;
           background: #722F37;
           border: none;
-          padding: 8px 18px;
+          padding: 8px 16px;
           cursor: pointer;
           transition: background 0.25s ease, transform 0.2s ease;
           white-space: nowrap;
           flex-shrink: 0;
           text-decoration: none;
+          border-radius: 2px;
         }
         .wh-rsvp-top:hover {
           background: #5a2029;
@@ -142,7 +145,7 @@ export default function WeddingHeader({
           display: flex;
           align-items: center;
           gap: 10px;
-          padding: 6px 24px 0;
+          padding: 4px 24px 6px;
         }
         .wh-sep-line {
           flex: 1;
@@ -151,15 +154,15 @@ export default function WeddingHeader({
         }
         .wh-sep-ornament {
           font-family: 'Cormorant Garamond', serif;
-          font-size: 0.75rem;
+          font-size: 0.72rem;
           color: #722F37;
           opacity: 0.45;
           line-height: 1;
         }
 
-        /* ── NAV ROW ── */
+        /* ── NAV ROW (desktop only) ── */
         .wh-nav {
-          display: flex;
+          display: none;
           align-items: center;
           justify-content: center;
           gap: 0;
@@ -172,12 +175,12 @@ export default function WeddingHeader({
         .wh-nav-link {
           font-family: 'Jost', sans-serif;
           font-weight: 300;
-          font-size: 0.6rem;
+          font-size: 0.76rem;
           letter-spacing: 0.18em;
           text-transform: uppercase;
           color: #3a1a1e;
           text-decoration: none;
-          padding: 4px 14px;
+          padding: 5px 18px;
           position: relative;
           transition: color 0.2s ease;
           white-space: nowrap;
@@ -201,8 +204,8 @@ export default function WeddingHeader({
           content: '';
           position: absolute;
           bottom: -1px;
-          left: 14px;
-          right: 14px;
+          left: 18px;
+          right: 18px;
           height: 1.5px;
           background: linear-gradient(90deg, #722F37, #6B7041);
           border-radius: 2px;
@@ -213,7 +216,7 @@ export default function WeddingHeader({
           background: linear-gradient(90deg, transparent, rgba(114,47,55,0.15) 20%, rgba(107,112,65,0.15) 80%, transparent);
         }
 
-        /* ── HAMBURGER ── */
+        /* ── HAMBURGER (mobile/tablet only) ── */
         .wh-ham {
           background: none;
           border: none;
@@ -226,7 +229,7 @@ export default function WeddingHeader({
         }
         .wh-bar {
           display: block;
-          height: 1px;
+          height: 1.5px;
           background: #722F37;
           transition: all 0.28s ease;
           transform-origin: center;
@@ -236,11 +239,11 @@ export default function WeddingHeader({
         .wh-mobile {
           background: #fffdf8;
           border-top: 1px solid rgba(114,47,55,0.08);
-          padding: 28px 32px 36px;
+          padding: 24px 32px 32px;
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 22px;
+          gap: 20px;
           animation: wh-slide 0.22s ease;
         }
         @keyframes wh-slide {
@@ -252,11 +255,11 @@ export default function WeddingHeader({
           font-family: 'Cormorant Garamond', serif;
           font-style: italic;
           font-weight: 400;
-          font-size: 1.55rem;
+          font-size: 1.5rem;
           letter-spacing: 0.05em;
           color: #722F37;
           text-decoration: none;
-          opacity: 0.7;
+          opacity: 0.78;
           transition: opacity 0.2s, letter-spacing 0.2s;
         }
         .wh-mob-link:hover, .wh-mob-link.active { opacity: 1; letter-spacing: 0.08em; }
@@ -264,7 +267,7 @@ export default function WeddingHeader({
         .wh-mob-rsvp {
           font-family: 'Jost', sans-serif;
           font-weight: 400;
-          font-size: 0.65rem;
+          font-size: 0.68rem;
           letter-spacing: 0.25em;
           text-transform: uppercase;
           color: #fffdf8;
@@ -272,17 +275,21 @@ export default function WeddingHeader({
           border: none;
           padding: 11px 28px;
           cursor: pointer;
-          margin-top: 6px;
+          margin-top: 4px;
           transition: background 0.25s;
+          border-radius: 2px;
         }
         .wh-mob-rsvp:hover { background: #5a2029; }
 
         @media (min-width: 1024px) {
-          .wh-nav-link     { font-size: 0.78rem; padding: 5px 18px; }
+          .wh-top          { padding: 10px 24px 0; }
+          .wh-sep          { padding: 6px 24px 2px; }
+          .wh-nav          { display: flex; }
+          .wh-ham          { display: none; }
+          .wh-mobile       { display: none; }
           .wh-date         { font-size: 0.62rem; }
           .wh-rsvp-top     { font-size: 0.72rem; padding: 10px 24px; }
           .wh-sep-ornament { font-size: 0.9rem; }
-          .wh-nav-link.active::after { left: 18px; right: 18px; }
         }
       `}</style>
 
@@ -290,31 +297,32 @@ export default function WeddingHeader({
         className={`wh-root fixed top-0 left-0 right-0 z-50 ${scrolled ? "wh-scrolled" : ""}`}
       >
         <div className="wh-top">
-          <div className="hidden lg:block" style={{ flex: 1 }} />
-          <button
-            className="wh-ham lg:hidden"
-            onClick={() => setMenuOpen((v) => !v)}
-            aria-label="Toggle menu"
-          >
-            <span
-              className="wh-bar"
-              style={{
-                width: 22,
-                transform: menuOpen ? "translateY(6px) rotate(45deg)" : "none",
-              }}
-            />
-            <span
-              className="wh-bar"
-              style={{ width: 22, opacity: menuOpen ? 0 : 1 }}
-            />
-            <span
-              className="wh-bar"
-              style={{
-                width: menuOpen ? 22 : 16,
-                transform: menuOpen ? "translateY(-6px) rotate(-45deg)" : "none",
-              }}
-            />
-          </button>
+          <div style={{ flex: 1, display: "flex", alignItems: "center" }}>
+            <button
+              className="wh-ham"
+              onClick={() => setMenuOpen((v) => !v)}
+              aria-label="Toggle menu"
+            >
+              <span
+                className="wh-bar"
+                style={{
+                  width: 22,
+                  transform: menuOpen ? "translateY(6.5px) rotate(45deg)" : "none",
+                }}
+              />
+              <span
+                className="wh-bar"
+                style={{ width: 22, opacity: menuOpen ? 0 : 1 }}
+              />
+              <span
+                className="wh-bar"
+                style={{
+                  width: menuOpen ? 22 : 16,
+                  transform: menuOpen ? "translateY(-6.5px) rotate(-45deg)" : "none",
+                }}
+              />
+            </button>
+          </div>
 
           <a href="#home" className="wh-logo">
             <span className="wh-name">{coupleName}</span>
@@ -337,7 +345,7 @@ export default function WeddingHeader({
           <div className="wh-sep-line" />
         </div>
 
-        <nav ref={navRef} className="wh-nav hidden lg:flex">
+        <nav ref={navRef} className="wh-nav">
           {NAV_LINKS.map((link) => (
             <a
               key={link.label}
@@ -353,8 +361,8 @@ export default function WeddingHeader({
         <div className="wh-bottom-rule" />
 
         {menuOpen && (
-          <div className="wh-mobile lg:hidden">
-            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4 }}>
+          <div className="wh-mobile">
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 2 }}>
               <div style={{ height: 1, width: 30, background: "linear-gradient(90deg,transparent,#6B7041)" }} />
               <span
                 style={{
@@ -393,7 +401,7 @@ export default function WeddingHeader({
               {quickActionLabel}
             </button>
 
-            <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 4 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 2 }}>
               <div style={{ height: 1, width: 30, background: "linear-gradient(90deg,transparent,#722F37)" }} />
               <span
                 style={{
@@ -411,7 +419,7 @@ export default function WeddingHeader({
         )}
       </header>
 
-      <div className="h-[88px] lg:h-[104px]" />
+      <div className="h-[68px] lg:h-[104px]" />
     </>
   );
 }

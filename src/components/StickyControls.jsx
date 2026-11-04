@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 
-export default function StickyControls({ onQuickAction, quickActionLabel = "Reminders" }) {
+export default function StickyControls({ onQuickAction, quickActionLabel = "BPI Gift QR" }) {
   const [visible, setVisible] = useState(false);
+  const [giftVisible, setGiftVisible] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [showMusicTip, setShowMusicTip] = useState(false);
   const [showActionTip, setShowActionTip] = useState(false);
@@ -16,6 +17,17 @@ export default function StickyControls({ onQuickAction, quickActionLabel = "Remi
     const handleScroll = () => setVisible(window.scrollY > 300);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const giftEl = document.getElementById("gift");
+    if (!giftEl) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => setGiftVisible(entry.isIntersecting),
+      { threshold: 0.2 }
+    );
+    obs.observe(giftEl);
+    return () => obs.disconnect();
   }, []);
 
   useEffect(() => {
@@ -92,6 +104,8 @@ export default function StickyControls({ onQuickAction, quickActionLabel = "Remi
         .catch(() => {});
     }
   };
+
+  const showBottomPill = visible && !giftVisible;
 
   return (
     <>
@@ -214,17 +228,17 @@ export default function StickyControls({ onQuickAction, quickActionLabel = "Remi
 
       <audio ref={audioRef} src="/music/wishlist.mp3" loop />
 
-      {/* Floating button — lower left */}
+      {/* Floating button — lower left (hides when #gift is already visible) */}
       <div
         style={{
           position: "fixed",
-          bottom: "1.8rem",
-          left: "1.2rem",
+          bottom: "max(1.4rem, env(safe-area-inset-bottom, 1.4rem))",
+          left: "1.1rem",
           zIndex: 50,
-          opacity: visible ? 1 : 0,
-          transform: visible ? "translateY(0)" : "translateY(24px)",
+          opacity: showBottomPill ? 1 : 0,
+          transform: showBottomPill ? "translateY(0)" : "translateY(24px)",
           transition: "opacity 0.45s ease, transform 0.45s ease",
-          pointerEvents: visible ? "auto" : "none",
+          pointerEvents: showBottomPill ? "auto" : "none",
         }}
       >
         <div style={{ position: "relative", display: "inline-flex" }}>
@@ -239,15 +253,15 @@ export default function StickyControls({ onQuickAction, quickActionLabel = "Remi
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "10px",
-              padding: "0.75rem 1.8rem 0.75rem 1.5rem",
+              gap: "8px",
+              padding: "0.68rem 1.45rem 0.68rem 1.25rem",
               borderRadius: "999px",
-              border: "1.5px solid rgba(255,253,248,0.4)",
+              border: "1.5px solid rgba(255,253,248,0.45)",
               background: "#722F37",
               color: "#fffdf8",
               fontFamily: "'Jost', sans-serif",
               fontWeight: 400,
-              fontSize: "0.78rem",
+              fontSize: "0.72rem",
               letterSpacing: "0.2em",
               textTransform: "uppercase",
               cursor: "pointer",
@@ -259,7 +273,7 @@ export default function StickyControls({ onQuickAction, quickActionLabel = "Remi
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 fontStyle: "italic",
-                fontSize: "1.2rem",
+                fontSize: "1.1rem",
                 lineHeight: 1,
                 opacity: 0.9,
               }}
@@ -273,10 +287,10 @@ export default function StickyControls({ onQuickAction, quickActionLabel = "Remi
 
       {/* Music — just below nav bar, right side */}
       <div
+        className="top-[76px] lg:top-[106px]"
         style={{
           position: "fixed",
-          top: "106px",
-          right: "1.2rem",
+          right: "1rem",
           zIndex: 50,
           opacity: visible ? 1 : 0,
           transform: visible ? "translateY(0)" : "translateY(-12px)",
@@ -336,8 +350,8 @@ export default function StickyControls({ onQuickAction, quickActionLabel = "Remi
             onMouseLeave={() => setHoverMusicTip(false)}
             title={isPlaying ? "Pause music" : "Play music"}
             style={{
-              width: "64px",
-              height: "64px",
+              width: "58px",
+              height: "58px",
               borderRadius: "50%",
               border: "none",
               background: "transparent",
@@ -351,8 +365,8 @@ export default function StickyControls({ onQuickAction, quickActionLabel = "Remi
           >
             <svg
               className={`vinyl-disc${isPlaying ? " spinning" : ""}`}
-              width="60"
-              height="60"
+              width="54"
+              height="54"
               viewBox="0 0 36 36"
             >
               <circle cx="18" cy="18" r="17" fill="#1a1208" />

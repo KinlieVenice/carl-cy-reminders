@@ -1,36 +1,59 @@
 import { useState, useRef } from "react";
-import { MapPin, ExternalLink, Clock, Sparkles, Droplets, Armchair, Heart, ZoomIn } from "lucide-react";
+import {
+  MapPin,
+  ExternalLink,
+  Clock,
+  Sparkles,
+  Droplets,
+  Armchair,
+  Heart,
+  ZoomIn,
+  Navigation,
+  Download,
+} from "lucide-react";
 import ImageContainer from "./components/ImageContainer";
 import Countdown from "./components/Countdown";
 import WeddingHeader from "./components/WeddingHeader";
 import StickyControls from "./components/StickyControls";
 import Sticker from "./components/Sticker";
 import Reveal from "./components/Reveal";
+import FilmStrip from "./components/FilmStrip";
 
 const CHAPEL_GMAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=Don+Bosco+Chapel+on+the+Hill+Nasugbu+Batangas";
+const CHAPEL_WAZE_URL =
+  "https://waze.com/ul?ll=14.0574537,120.8360742&navigate=yes";
 const WINDSONG_GMAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=Gorio%27s+Restaurant+Tagaytay";
+const GORIOS_WAZE_URL =
+  "https://waze.com/ul?ll=14.1059587,120.9548174&navigate=yes";
 const DIRECTIONS_GMAPS_URL =
   "https://www.google.com/maps/dir/14.0574537,120.8360742/14.1059587,120.9548174";
+const MAIN_WEDDING_SITE_DRESS_CODE = "https://carlcywedding.site/#dress-code";
 
 const REMINDERS = [
   {
     number: "01",
     tapeLabel: "Dress Code",
     title: "Dress code:",
-    body: "Gentlemen are requested to wear a barong paired with black slacks, while ladies are invited to wear a formal dress in any of the colors indicated in our wedding website. Thank you for helping us bring our wedding vision to life! ♡",
+    bodyBeforeLink:
+      "Gentlemen are requested to wear a barong paired with black slacks, while ladies are invited to wear a formal dress in any of the colors indicated in ",
+    linkText: "our wedding website",
+    linkHref: MAIN_WEDDING_SITE_DRESS_CODE,
+    bodyAfterLink:
+      ". Thank you for helping us bring our wedding vision to life! ♡",
     icon: Sparkles,
-    rotation: "-0.7deg",
-    tapeConfig: { left: "26px", top: "-14px", rotate: "-4deg" },
+    rotation: "-0.5deg",
+    tapeConfig: { left: "24px", top: "-14px", rotate: "-3.5deg" },
+    // Top-right corner (opposite left tape) — never overlaps text
     sticker: {
       src: "/STICKERS/36.webp",
-      width: 135,
-      mdWidth: 175,
-      lgWidth: 195,
-      top: "-55px",
-      right: "-45px",
-      mdRight: "-55px",
+      width: 90,
+      mdWidth: 140,
+      lgWidth: 165,
+      top: "-38px",
+      right: "-16px",
+      mdRight: "-38px",
       rotate: 12,
     },
     swatches: [
@@ -39,7 +62,16 @@ const REMINDERS = [
       { role: "Secondary Sponsors", colors: ["#808000"] },
       {
         role: "Guests",
-        colors: ["#cdc1ba", "#8f8177", "#d1aba6", "#6f3b3e", "#a7a376", "#414224", "#c2a35a", "#844f39"],
+        colors: [
+          "#cdc1ba",
+          "#8f8177",
+          "#d1aba6",
+          "#6f3b3e",
+          "#a7a376",
+          "#414224",
+          "#c2a35a",
+          "#844f39",
+        ],
       },
     ],
   },
@@ -49,16 +81,17 @@ const REMINDERS = [
     title: "Be on time:",
     body: "Kindly arrive at the ceremony venue a little early to avoid missing any part of the ceremony.",
     icon: Clock,
-    rotation: "0.6deg",
-    tapeConfig: { right: "28px", top: "-14px", rotate: "4deg" },
+    rotation: "0.5deg",
+    tapeConfig: { right: "24px", top: "-14px", rotate: "3.5deg" },
+    // Top-left corner (opposite right tape) — never overlaps text
     sticker: {
       src: "/STICKERS/23.webp",
-      width: 130,
-      mdWidth: 165,
-      lgWidth: 185,
-      bottom: "-55px",
-      left: "-45px",
-      mdLeft: "-60px",
+      width: 85,
+      mdWidth: 130,
+      lgWidth: 150,
+      top: "-36px",
+      left: "-16px",
+      mdLeft: "-36px",
       rotate: -10,
     },
   },
@@ -68,16 +101,17 @@ const REMINDERS = [
     title: "Stay cool and hydrated:",
     body: "With the warm weather expected around this time of year, please remember to drink plenty of water and keep cool throughout the day. We want everyone to feel comfortable and enjoy the celebration with us! ♡",
     icon: Droplets,
-    rotation: "-0.5deg",
-    tapeConfig: { left: "calc(50% - 60px)", top: "-14px", rotate: "-1.5deg" },
+    rotation: "-0.4deg",
+    tapeConfig: { left: "24px", top: "-14px", rotate: "-2deg" },
+    // Top-right corner (opposite left tape)
     sticker: {
       src: "/STICKERS/45.webp",
-      width: 125,
-      mdWidth: 160,
-      lgWidth: 175,
-      top: "-50px",
-      right: "-45px",
-      mdRight: "-55px",
+      width: 85,
+      mdWidth: 130,
+      lgWidth: 150,
+      top: "-36px",
+      right: "-16px",
+      mdRight: "-36px",
       rotate: 10,
     },
   },
@@ -87,16 +121,17 @@ const REMINDERS = [
     title: "Reserved seats:",
     body: "Please follow the seating arrangements, if applicable, and feel free to ask our coordinators for assistance.",
     icon: Armchair,
-    rotation: "0.7deg",
-    tapeConfig: { left: "30px", top: "-14px", rotate: "-5deg" },
+    rotation: "0.5deg",
+    tapeConfig: { right: "24px", top: "-14px", rotate: "3deg" },
+    // Top-left corner (opposite right tape)
     sticker: {
       src: "/STICKERS/46.webp",
-      width: 125,
-      mdWidth: 160,
-      lgWidth: 175,
-      bottom: "-50px",
-      right: "-42px",
-      mdRight: "-52px",
+      width: 85,
+      mdWidth: 130,
+      lgWidth: 150,
+      top: "-36px",
+      left: "-16px",
+      mdLeft: "-36px",
       rotate: -12,
     },
   },
@@ -107,16 +142,17 @@ const REMINDERS = [
     body: "Come ready to celebrate, enjoy good company, and make beautiful memories with us!",
     icon: Heart,
     rotation: "-0.4deg",
-    tapeConfig: { right: "32px", top: "-14px", rotate: "3.5deg" },
+    tapeConfig: { left: "24px", top: "-14px", rotate: "-3deg" },
+    // Top-right corner (opposite left tape)
     sticker: {
       src: "/STICKERS/22.webp",
-      width: 140,
-      mdWidth: 180,
-      lgWidth: 200,
-      bottom: "-55px",
-      left: "-45px",
-      mdLeft: "-55px",
-      rotate: 8,
+      width: 92,
+      mdWidth: 140,
+      lgWidth: 160,
+      top: "-38px",
+      right: "-16px",
+      mdRight: "-36px",
+      rotate: 10,
     },
   },
 ];
@@ -125,9 +161,9 @@ function TornBannerTitle({
   title,
   stickerSrc,
   stickerProps,
-  height = 175,
-  mdHeight = 215,
-  lgHeight = 255,
+  height = 165,
+  mdHeight = 210,
+  lgHeight = 250,
   className = "",
 }) {
   return (
@@ -232,10 +268,11 @@ export default function App() {
         .gmaps-pill {
           display: inline-flex;
           align-items: center;
+          justify-content: center;
           gap: 7px;
           font-family: 'Jost', sans-serif;
           font-weight: 400;
-          letter-spacing: 0.2em;
+          letter-spacing: 0.18em;
           text-transform: uppercase;
           color: #fffdf8;
           background: #722F37;
@@ -250,6 +287,29 @@ export default function App() {
           transform: translateY(-1px);
           box-shadow: 0 6px 22px rgba(114,47,55,0.45);
         }
+
+        .waze-pill {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 7px;
+          font-family: 'Jost', sans-serif;
+          font-weight: 400;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: #722F37;
+          background: #fffdf8;
+          border: 1.5px solid rgba(114,47,55,0.45);
+          border-radius: 2px;
+          text-decoration: none;
+          box-shadow: 0 2px 10px rgba(114,47,55,0.12);
+          transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+        }
+        .waze-pill:hover {
+          background: #f6edd9;
+          border-color: #722F37;
+          transform: translateY(-1px);
+        }
       `}</style>
 
       <WeddingHeader
@@ -260,164 +320,584 @@ export default function App() {
       />
 
       {/* =====================================================================
-          SECTION 1: HERO — OUR WEDDING DAY
+          SECTION 1: HERO — OUR WEDDING DAY (SCRAPBOOK POSTCARD & PIZZA COLLAGE)
       ===================================================================== */}
       <section
         id="home"
-        className="relative bg-[url('/images/banner_bg_sm.webp')] md:bg-[url('/images/banner_bg.webp')] bg-cover bg-no-repeat bg-position-[55%_55%] pt-8 md:pt-14 pb-44 sm:pb-48 md:pb-56 lg:pb-64"
+        className="relative bg-[url('/makati/IMG_8296.webp')] bg-size-[185%_auto] sm:bg-size-[160%_auto] lg:bg-cover bg-no-repeat bg-top pt-8 sm:pt-10 md:pt-14 pb-52 sm:pb-56 md:pb-68 overflow-x-clip"
       >
-        <div className="absolute inset-0 bg-black/25 pointer-events-none" />
+        {/* Warm editorial vignette overlay so the scrapbook collage pops */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(28, 12, 15, 0.42) 0%, rgba(28, 12, 15, 0.24) 50%, rgba(28, 12, 15, 0.52) 100%)",
+          }}
+        />
 
-        <div className="relative z-10 flex flex-col items-center px-4 sm:px-6">
-          <Reveal
-            animation="fade-up"
-            className="flex flex-col items-center md:flex-row md:items-center md:justify-center gap-8 md:gap-4 max-w-5xl w-full"
-          >
-            {/* Left: Tilted Polaroid Photo with Wax Seal */}
-            <div className="relative flex justify-center">
-              <div className="relative">
-                <ImageContainer height={200} mdHeight={260} lgHeight={310} rotation={-4}>
-                  <img
-                    src="/images/banner_pic.webp"
-                    alt="Carl and Cy"
-                    className="h-full object-cover shadow-2xl"
-                    fetchPriority="high"
-                    loading="eager"
-                  />
-                </ImageContainer>
-                <Sticker
-                  src="/STICKERS/MONOG.webp"
-                  width={84}
-                  mdWidth={102}
-                  lgWidth={116}
-                  bottom="-30px"
-                  left="-16px"
-                  rotate={-8}
-                  zIndex={30}
-                />
-              </div>
-            </div>
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 flex flex-col items-center">
+          {/* 3-Column Desktop / Layered Mobile Scrapbook Spread */}
+          <div className="w-full grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-4">
+            {/* ── LEFT WING (Desktop): Cafe Veil + Feeding Pizza Polaroids ── */}
+            <div className="hidden lg:flex lg:col-span-3 flex-col items-center relative">
+              {/* Pressed lavender sprig behind polaroid */}
+              <img
+                src="/STICKERS/lavender.webp"
+                alt=""
+                aria-hidden="true"
+                className="w-28 object-contain pointer-events-none select-none absolute -top-10 -left-6 -rotate-18 z-10 opacity-95 drop-shadow"
+              />
 
-            {/* Right: "OUR WEDDING DAY" Love-Letter Note Card */}
-            <div className="relative w-full max-w-[420px] md:max-w-[460px] lg:max-w-[510px] md:ml-[-12px] z-20">
+              {/* Top Left Polaroid: Cafe Veil */}
               <div
-                className="scrapbook-card px-6 py-7 sm:px-8 sm:py-8 md:px-9 md:py-9"
+                onClick={() =>
+                  setQrZoom({
+                    src: "/makati/IMG_7555.webp",
+                    label: "Carl & Cy · Makati Prenup",
+                  })
+                }
+                role="button"
+                tabIndex={0}
+                className="relative bg-[#fffdf8] p-2.5 pb-7 shadow-2xl cursor-zoom-in transition-transform duration-300 hover:scale-[1.03] z-20"
                 style={{
-                  transform: "rotate(1.5deg)",
-                  border: "1px solid #f6edd9",
+                  transform: "rotate(-5deg)",
+                  border: "1px solid rgba(114,47,55,0.14)",
                 }}
               >
-                {/* Washi tape top */}
-                <div
-                  className="washi-tape-pill text-xl sm:text-2xl md:text-[1.6rem]"
-                  style={{
-                    top: "-15px",
-                    left: "50%",
-                    transform: "translateX(-50%) rotate(-2deg)",
-                  }}
-                >
-                  November 26, 2026
-                </div>
-
-                {/* Inner decorative hairline border */}
+                {/* Mini washi tape at top */}
                 <div
                   style={{
                     position: "absolute",
-                    inset: "9px",
-                    border: "1px solid rgba(114,47,55,0.14)",
-                    pointerEvents: "none",
+                    top: "-10px",
+                    left: "50%",
+                    transform: "translateX(-50%) rotate(-2deg)",
+                    width: "76px",
+                    height: "20px",
+                    background: "rgba(140, 60, 68, 0.78)",
+                    boxShadow: "0 2px 6px rgba(0,0,0,0.18)",
                   }}
                 />
-
-                <div className="text-center relative z-10 pt-1">
-                  <p
-                    className="text-[0.62rem] sm:text-xs md:text-[0.8rem] mb-1.5"
-                    style={{
-                      fontFamily: "'Jost', sans-serif",
-                      fontWeight: 400,
-                      letterSpacing: "0.3em",
-                      textTransform: "uppercase",
-                      color: "#6B7041",
-                    }}
-                  >
-                    Wedding Day Guide &amp; Reminders
-                  </p>
-
-                  <h1
-                    className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem]"
-                    style={{
-                      fontFamily: "'Cormorant Garamond', serif",
-                      fontStyle: "italic",
-                      fontWeight: 400,
-                      letterSpacing: "0.06em",
-                      color: "#722F37",
-                      lineHeight: 1.15,
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    Our Wedding Day
-                  </h1>
-
-                  {/* Ornamental divider */}
-                  <div className="flex items-center justify-center gap-2.5 my-3">
-                    <div
-                      style={{
-                        height: 1,
-                        width: 48,
-                        background: "linear-gradient(90deg, transparent, rgba(114,47,55,0.35))",
-                      }}
-                    />
-                    <span className="text-xs md:text-sm" style={{ color: "#6B7041" }}>
-                      ✦
-                    </span>
-                    <div
-                      style={{
-                        height: 1,
-                        width: 48,
-                        background: "linear-gradient(90deg, rgba(114,47,55,0.35), transparent)",
-                      }}
-                    />
-                  </div>
-
-                  <p
-                    className="text-base sm:text-lg md:text-xl lg:text-[1.28rem] leading-relaxed"
-                    style={{
-                      fontFamily: "'Cormorant Garamond', serif",
-                      fontWeight: 400,
-                      color: "#3a1a1e",
-                      letterSpacing: "0.01em",
-                    }}
-                  >
-                    We are so excited to celebrate this special day with you! Here are a few
-                    helpful reminders to make your journey to our wedding as smooth and
-                    enjoyable as possible.
-                  </p>
-
-                  <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
-                    <a
-                      href="#ceremony"
-                      className="gmaps-pill text-[0.65rem] sm:text-xs md:text-[0.78rem] px-4 py-2 sm:px-5 sm:py-2.5"
-                    >
-                      <span>✦</span> View Venues &amp; Reminders
-                    </a>
-                  </div>
-                </div>
+                <img
+                  src="/makati/IMG_7555.webp"
+                  alt="Carl and Cy at cafe"
+                  className="w-56 xl:w-60 h-40 object-cover"
+                  fetchPriority="high"
+                  loading="eager"
+                />
+                <p
+                  className="text-center text-xl mt-1.5"
+                  style={{
+                    fontFamily: "'Great Vibes', cursive",
+                    color: "#722F37",
+                    lineHeight: 1,
+                  }}
+                >
+                  Forever starts here ♡
+                </p>
               </div>
 
-              <Sticker
-                src="/STICKERS/envelope-stamp.webp"
-                width={84}
-                mdWidth={96}
-                bottom="-30px"
-                right="-16px"
-                rotate={14}
-                zIndex={30}
-              />
+              {/* Bottom Left Overlapping Polaroid: Feeding Pizza */}
+              <div
+                onClick={() =>
+                  setQrZoom({
+                    src: "/makati/IMG_8421.webp",
+                    label: "A Slice of Forever · Carl & Cy",
+                  })
+                }
+                role="button"
+                tabIndex={0}
+                className="relative bg-[#fffdf8] p-2.5 pb-6 shadow-2xl cursor-zoom-in transition-transform duration-300 hover:scale-[1.03] -mt-6 ml-8 z-30"
+                style={{
+                  transform: "rotate(4deg)",
+                  border: "1px solid rgba(114,47,55,0.14)",
+                }}
+              >
+                <img
+                  src="/makati/IMG_8421.webp"
+                  alt="Cy feeding Carl pizza"
+                  className="w-48 xl:w-52 h-34 object-cover"
+                  loading="eager"
+                />
+                <p
+                  className="text-center text-lg mt-1.5"
+                  style={{
+                    fontFamily: "'Great Vibes', cursive",
+                    color: "#722F37",
+                    lineHeight: 1,
+                  }}
+                >
+                  A slice of forever ♡
+                </p>
+              </div>
             </div>
-          </Reveal>
 
-          {/* Countdown to Nov 26, 2026 1:00 PM — given generous vertical space so nothing overlaps it */}
-          <div className="mt-14 sm:mt-16 md:mt-20">
+            {/* ── CENTERPIECE: "OUR WEDDING DAY" VINTAGE POSTCARD & LOVE LETTER ── */}
+            <div className="lg:col-span-6 flex justify-center relative z-30">
+              <div className="relative w-full max-w-[430px] sm:max-w-[470px] md:max-w-[510px]">
+                {/* C&C Monogrammed Parchment Envelope peeking from top-left behind postcard */}
+                <img
+                  src="/STICKERS/envelope.webp"
+                  alt=""
+                  aria-hidden="true"
+                  className="w-36 sm:w-44 md:w-48 object-contain pointer-events-none select-none absolute -top-9 -left-6 sm:-left-10 -rotate-12 z-0 opacity-95 drop-shadow-lg"
+                />
+
+                {/* Pressed floral sticker peeking top-right */}
+                <Sticker
+                  src="/STICKERS/36.webp"
+                  width={95}
+                  mdWidth={125}
+                  top="-34px"
+                  right="-18px"
+                  rotate={14}
+                  zIndex={10}
+                />
+
+                {/* Main Postcard / Love-Note Card */}
+                <div
+                  className="scrapbook-card relative z-20 px-6 py-8 sm:px-9 sm:py-9 md:px-11 md:py-10"
+                  style={{
+                    transform: "rotate(0.6deg)",
+                    backgroundImage:
+                      "radial-gradient(rgba(114,47,55,0.03) 1px, transparent 0), linear-gradient(135deg, #fffdf9 0%, #f9f1e2 100%)",
+                    backgroundSize: "18px 18px, 100% 100%",
+                    border: "1px solid #eadbc2",
+                  }}
+                >
+                  {/* Realistic Metallic Silver Paperclip SVG on Top-Left Edge */}
+                  <svg
+                    viewBox="0 0 36 90"
+                    className="w-6 sm:w-7 md:w-8 h-auto absolute -top-6 left-7 sm:left-9 z-40 pointer-events-none drop-shadow-md"
+                    fill="none"
+                  >
+                    <path
+                      d="M10 24V66C10 73.732 16.268 80 24 80C31.732 80 38 73.732 38 66V16C38 9.92487 33.0751 5 27 5C20.9249 5 16 9.92487 16 16V60C16 63.866 19.134 67 23 67C26.866 67 30 63.866 30 60V24"
+                      stroke="url(#paperclipGrad)"
+                      strokeWidth="3.2"
+                      strokeLinecap="round"
+                    />
+                    <defs>
+                      <linearGradient id="paperclipGrad" x1="10" y1="5" x2="38" y2="80" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stopColor="#d8d8d8" />
+                        <stop offset="45%" stopColor="#ffffff" />
+                        <stop offset="70%" stopColor="#9e9e9e" />
+                        <stop offset="100%" stopColor="#cccccc" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+
+                  {/* Washi tape top center */}
+                  <div
+                    className="washi-tape-pill text-xl sm:text-2xl md:text-[1.65rem]"
+                    style={{
+                      top: "-16px",
+                      left: "50%",
+                      transform: "translateX(-50%) rotate(-1.5deg)",
+                    }}
+                  >
+                    November 26, 2026
+                  </div>
+
+                  {/* Outer & Inner Editorial Hairline Frames */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      inset: "8px",
+                      border: "1px solid rgba(114,47,55,0.18)",
+                      pointerEvents: "none",
+                    }}
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      inset: "12px",
+                      border: "1px dashed rgba(114,47,55,0.12)",
+                      pointerEvents: "none",
+                    }}
+                  />
+
+                  {/* Vintage Postmark Cancellation Stamp in Top-Right Corner */}
+                  <div
+                    className="absolute top-4 right-4 sm:top-5 sm:right-6 pointer-events-none select-none opacity-35"
+                    style={{ transform: "rotate(12deg)" }}
+                  >
+                    <svg width="76" height="44" viewBox="0 0 110 64" fill="none">
+                      <circle cx="32" cy="32" r="26" stroke="#722F37" strokeWidth="1.8" strokeDasharray="3 2" />
+                      <circle cx="32" cy="32" r="21" stroke="#722F37" strokeWidth="1" />
+                      <text
+                        x="32"
+                        y="28"
+                        textAnchor="middle"
+                        fill="#722F37"
+                        fontSize="7"
+                        fontFamily="Jost, sans-serif"
+                        letterSpacing="1.5"
+                      >
+                        NOV 26
+                      </text>
+                      <text
+                        x="32"
+                        y="39"
+                        textAnchor="middle"
+                        fill="#722F37"
+                        fontSize="7.5"
+                        fontFamily="Jost, sans-serif"
+                        fontWeight="bold"
+                        letterSpacing="1.5"
+                      >
+                        2026
+                      </text>
+                      <path
+                        d="M62 20 Q 74 15, 86 20 T 108 20 M62 28 Q 74 23, 86 28 T 108 28 M62 36 Q 74 31, 86 36 T 108 36 M62 44 Q 74 39, 86 44 T 108 44"
+                        stroke="#722F37"
+                        strokeWidth="1.4"
+                        fill="none"
+                      />
+                    </svg>
+                  </div>
+
+                  <div className="text-center relative z-10 pt-2">
+                    <p
+                      className="text-[0.62rem] sm:text-xs md:text-[0.76rem] mb-1"
+                      style={{
+                        fontFamily: "'Jost', sans-serif",
+                        fontWeight: 400,
+                        letterSpacing: "0.3em",
+                        textTransform: "uppercase",
+                        color: "#6B7041",
+                      }}
+                    >
+                      Carl &amp; Cy · Wedding Day Guide
+                    </p>
+
+                    <h1
+                      className="text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.45rem]"
+                      style={{
+                        fontFamily: "'Cormorant Garamond', serif",
+                        fontStyle: "italic",
+                        fontWeight: 500,
+                        letterSpacing: "0.06em",
+                        color: "#722F37",
+                        lineHeight: 1.12,
+                        textTransform: "uppercase",
+                      }}
+                    >
+                      Our Wedding Day
+                    </h1>
+
+                    {/* Ornamental divider */}
+                    <div className="flex items-center justify-center gap-2.5 my-3">
+                      <div
+                        style={{
+                          height: 1,
+                          width: 48,
+                          background: "linear-gradient(90deg, transparent, rgba(114,47,55,0.4))",
+                        }}
+                      />
+                      <span className="text-xs md:text-sm" style={{ color: "#6B7041" }}>
+                        ✦
+                      </span>
+                      <div
+                        style={{
+                          height: 1,
+                          width: 48,
+                          background: "linear-gradient(90deg, rgba(114,47,55,0.4), transparent)",
+                        }}
+                      />
+                    </div>
+
+                    <p
+                      className="text-base sm:text-lg md:text-xl lg:text-[1.24rem] leading-relaxed px-1"
+                      style={{
+                        fontFamily: "'Cormorant Garamond', serif",
+                        fontWeight: 400,
+                        color: "#3a1a1e",
+                        letterSpacing: "0.01em",
+                      }}
+                    >
+                      We are so excited to celebrate this special day with you! Here are a few
+                      helpful reminders to make your journey to our wedding as smooth and
+                      enjoyable as possible.
+                    </p>
+
+                    {/* Venue & Time Mini Summary Strip inside Postcard */}
+                    <div
+                      className="mt-4 mb-4 py-2 px-3 mx-auto max-w-xs flex items-center justify-center gap-3 text-xs sm:text-sm"
+                      style={{
+                        fontFamily: "'Cormorant Garamond', serif",
+                        fontStyle: "italic",
+                        color: "#722F37",
+                        background: "rgba(246, 237, 217, 0.65)",
+                        borderTop: "1px solid rgba(114,47,55,0.15)",
+                        borderBottom: "1px solid rgba(114,47,55,0.15)",
+                      }}
+                    >
+                      <span>1:00 PM Ceremony</span>
+                      <span style={{ color: "#6B7041" }}>✦</span>
+                      <span>Chapel on the Hill</span>
+                      <span style={{ color: "#6B7041" }}>✦</span>
+                      <span>Windsong</span>
+                    </div>
+
+                    <div className="flex flex-wrap items-center justify-center gap-2.5">
+                      <a
+                        href="#ceremony"
+                        className="gmaps-pill text-[0.64rem] sm:text-xs md:text-[0.74rem] px-4 py-2.5 sm:px-5"
+                      >
+                        <span>✦</span> Venues &amp; Maps
+                      </a>
+                      <a
+                        href="#reminders"
+                        className="waze-pill text-[0.64rem] sm:text-xs md:text-[0.74rem] px-4 py-2.5 sm:px-5"
+                      >
+                        Gentle Reminders
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* C&C Burgundy Wax Seal stamped on bottom-left corner of postcard */}
+                <Sticker
+                  src="/STICKERS/MONOG.webp"
+                  width={74}
+                  mdWidth={92}
+                  bottom="-26px"
+                  left="-14px"
+                  rotate={-8}
+                  zIndex={35}
+                />
+                <Sticker
+                  src="/STICKERS/envelope-stamp.webp"
+                  width={68}
+                  mdWidth={84}
+                  bottom="-22px"
+                  right="-10px"
+                  rotate={14}
+                  zIndex={35}
+                />
+              </div>
+            </div>
+
+            {/* ── RIGHT WING (Desktop): DEDICATED PIZZA BOX POLAROID COLLAGE ── */}
+            <div className="hidden lg:flex lg:col-span-3 flex-col items-center relative">
+              {/* Top Right Polaroid: Couple holding "Getting Married! ♡ 11.26.26" Pizza Box */}
+              <div
+                onClick={() =>
+                  setQrZoom({
+                    src: "/makati/IMG_8448.webp",
+                    label: "Getting Married! ♡ 11.26.26",
+                  })
+                }
+                role="button"
+                tabIndex={0}
+                className="relative bg-[#fffdf8] p-2.5 pb-7 shadow-2xl cursor-zoom-in transition-transform duration-300 hover:scale-[1.03] z-20"
+                style={{
+                  transform: "rotate(4.5deg)",
+                  border: "1px solid rgba(114,47,55,0.14)",
+                }}
+              >
+                {/* Mini washi tape at top */}
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "-10px",
+                    left: "50%",
+                    transform: "translateX(-50%) rotate(2deg)",
+                    width: "82px",
+                    height: "20px",
+                    background: "rgba(107, 112, 65, 0.82)",
+                    boxShadow: "0 2px 6px rgba(0,0,0,0.18)",
+                  }}
+                />
+                <img
+                  src="/makati/IMG_8448.webp"
+                  alt="Carl and Cy holding Getting Married 11.26.26 pizza box"
+                  className="w-52 xl:w-56 h-56 object-cover object-top"
+                  fetchPriority="high"
+                  loading="eager"
+                />
+                <p
+                  className="text-center text-xl mt-1.5"
+                  style={{
+                    fontFamily: "'Great Vibes', cursive",
+                    color: "#722F37",
+                    lineHeight: 1,
+                  }}
+                >
+                  Getting Married! ♡
+                </p>
+              </div>
+
+              {/* Bottom Right Overlapping Polaroid: Close-up of "Getting Married! ♡ 11.26.26" Pizza Box & Bouquet */}
+              <div
+                onClick={() =>
+                  setQrZoom({
+                    src: "/makati/IMG_8371.webp",
+                    label: "Getting Married! ♡ 11.26.26",
+                  })
+                }
+                role="button"
+                tabIndex={0}
+                className="relative bg-[#fffdf8] p-2.5 pb-6 shadow-2xl cursor-zoom-in transition-transform duration-300 hover:scale-[1.03] -mt-7 -ml-6 z-30"
+                style={{
+                  transform: "rotate(-4deg)",
+                  border: "1px solid rgba(114,47,55,0.14)",
+                }}
+              >
+                <img
+                  src="/makati/IMG_8371.webp"
+                  alt="Getting Married 11.26.26 pizza box close-up with bouquet"
+                  className="w-52 xl:w-56 h-38 object-cover"
+                  loading="eager"
+                />
+                <p
+                  className="text-center text-lg mt-1.5"
+                  style={{
+                    fontFamily: "'Great Vibes', cursive",
+                    color: "#722F37",
+                    lineHeight: 1,
+                  }}
+                >
+                  Pizza &amp; Forever · 11·26·26
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* ── MOBILE & TABLET (< lg): FANNED PIZZA & PRENUP POLAROID SCRAPBOOK COLLAGE ── */}
+          <div className="lg:hidden relative w-full max-w-md mx-auto mt-7 mb-1 flex flex-col items-center">
+            {/* Top Pair: Fanned Left & Right Pizza Polaroids */}
+            <div className="flex items-center justify-center w-full px-1">
+              {/* Left Polaroid: Carl & Cy holding "Getting Married! ♡ 11.26.26" Pizza Box */}
+              <div
+                onClick={() =>
+                  setQrZoom({
+                    src: "/makati/IMG_8448.webp",
+                    label: "Getting Married! ♡ 11.26.26",
+                  })
+                }
+                role="button"
+                tabIndex={0}
+                className="relative bg-[#fffdf8] p-2 pb-5 shadow-2xl cursor-zoom-in w-[48%] max-w-[185px] z-20"
+                style={{
+                  transform: "rotate(-4.5deg)",
+                  border: "1px solid rgba(114,47,55,0.15)",
+                }}
+              >
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "-8px",
+                    left: "50%",
+                    transform: "translateX(-50%) rotate(-2deg)",
+                    width: "62px",
+                    height: "16px",
+                    background: "rgba(140, 60, 68, 0.82)",
+                    boxShadow: "0 2px 5px rgba(0,0,0,0.18)",
+                  }}
+                />
+                <img
+                  src="/makati/IMG_8448.webp"
+                  alt="Carl and Cy holding Getting Married pizza box"
+                  className="w-full h-40 sm:h-44 object-cover object-top"
+                  loading="eager"
+                />
+                <p
+                  className="text-center text-base sm:text-lg mt-1.5 whitespace-nowrap"
+                  style={{
+                    fontFamily: "'Great Vibes', cursive",
+                    color: "#722F37",
+                    lineHeight: 1,
+                  }}
+                >
+                  Getting Married! ♡
+                </p>
+              </div>
+
+              {/* Right Polaroid: Close-Up of "Getting Married! ♡ 11.26.26" Pizza Box & Bouquet */}
+              <div
+                onClick={() =>
+                  setQrZoom({
+                    src: "/makati/IMG_8371.webp",
+                    label: "Getting Married! ♡ 11.26.26",
+                  })
+                }
+                role="button"
+                tabIndex={0}
+                className="relative bg-[#fffdf8] p-2 pb-5 shadow-2xl cursor-zoom-in w-[54%] max-w-[205px] -ml-3 mt-4 z-30"
+                style={{
+                  transform: "rotate(4deg)",
+                  border: "1px solid rgba(114,47,55,0.15)",
+                }}
+              >
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "-8px",
+                    left: "50%",
+                    transform: "translateX(-50%) rotate(2deg)",
+                    width: "62px",
+                    height: "16px",
+                    background: "rgba(107, 112, 65, 0.85)",
+                    boxShadow: "0 2px 5px rgba(0,0,0,0.18)",
+                  }}
+                />
+                <img
+                  src="/makati/IMG_8371.webp"
+                  alt="Getting Married 11.26.26 pizza box close-up"
+                  className="w-full h-36 sm:h-40 object-cover"
+                  loading="eager"
+                />
+                <p
+                  className="text-center text-base sm:text-lg mt-1.5 whitespace-nowrap"
+                  style={{
+                    fontFamily: "'Great Vibes', cursive",
+                    color: "#722F37",
+                    lineHeight: 1,
+                  }}
+                >
+                  Pizza &amp; Forever · 11·26·26
+                </p>
+              </div>
+            </div>
+
+            {/* Bottom Overlapping Center Polaroid: Feeding Pizza / Cafe Veil */}
+            <div
+              onClick={() =>
+                setQrZoom({
+                  src: "/makati/IMG_8421.webp",
+                  label: "A Slice of Forever · Carl & Cy",
+                })
+              }
+              role="button"
+              tabIndex={0}
+              className="relative bg-[#fffdf8] p-2 pb-5 shadow-2xl cursor-zoom-in w-[62%] max-w-[230px] -mt-4 z-30"
+              style={{
+                transform: "rotate(-1.5deg)",
+                border: "1px solid rgba(114,47,55,0.15)",
+              }}
+            >
+              <img
+                src="/makati/IMG_8421.webp"
+                alt="Cy feeding Carl pizza"
+                className="w-full h-32 sm:h-36 object-cover"
+                loading="eager"
+              />
+              <p
+                className="text-center text-base sm:text-lg mt-1.5 whitespace-nowrap"
+                style={{
+                  fontFamily: "'Great Vibes', cursive",
+                  color: "#722F37",
+                  lineHeight: 1,
+                }}
+              >
+                A slice of forever ♡
+              </p>
+            </div>
+          </div>
+
+          {/* Countdown to Nov 26, 2026 1:00 PM */}
+          <div className="mt-8 sm:mt-10 md:mt-12">
             <Countdown targetDate="2026-11-26T13:00:00" />
           </div>
         </div>
@@ -425,16 +905,16 @@ export default function App() {
         {/* Overlapping torn paper transition — anchored to the bottom of <section id="home"> */}
         <TornBannerTitle
           title="Ceremony & Reception"
-          className="absolute -bottom-24 sm:-bottom-28 md:-bottom-32 left-0 right-0 z-20 object-cover"
-          height={165}
-          mdHeight={210}
-          lgHeight={245}
+          className="absolute -bottom-22 sm:-bottom-26 md:-bottom-30 left-0 right-0 z-20 object-cover"
+          height={160}
+          mdHeight={205}
+          lgHeight={240}
           stickerSrc="/STICKERS/19.webp"
           stickerProps={{
-            width: 190,
-            mdWidth: 230,
-            bottom: "-40px",
-            right: "-55px",
+            width: 170,
+            mdWidth: 220,
+            bottom: "-36px",
+            right: "-45px",
             rotate: -20,
             zIndex: 30,
           }}
@@ -446,14 +926,14 @@ export default function App() {
       ===================================================================== */}
       <section
         id="ceremony"
-        className="bg-[url('/images/banner5cp.webp')] bg-cover md:bg-center bg-bottom bg-no-repeat bg-[position:60%_50%] relative z-10 pt-28 sm:pt-32 md:pt-40 pb-44 sm:pb-48 md:pb-56"
+        className="bg-[url('/makati/IMG_8029.webp')] md:bg-[url('/makati/IMG_7454.webp')] bg-cover bg-center bg-no-repeat relative z-10 pt-32 sm:pt-36 md:pt-44 pb-52 sm:pb-56 md:pb-64"
       >
         <div className="absolute inset-0 bg-black/15 pointer-events-none" />
 
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col items-center gap-16 md:gap-20">
           {/* ── THE CEREMONY ── */}
           <Reveal animation="fade-up" className="w-full">
-            <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12">
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-7 lg:gap-12">
               {/* Same photo card as website */}
               <div className="relative">
                 <a
@@ -468,16 +948,17 @@ export default function App() {
                       src="/images/chapel-h.webp"
                       alt="Chapel on the Hill — Wedding Location"
                       loading="lazy"
-                      className="w-80 sm:w-96 md:w-108 lg:w-115 drop-shadow-2xl"
+                      className="w-78 sm:w-94 md:w-106 lg:w-115 drop-shadow-2xl"
                     />
                   </ImageContainer>
                 </a>
                 <Sticker
                   src="/STICKERS/32.webp"
-                  width={160}
-                  mdWidth={195}
-                  top="-40px"
-                  left="-65px"
+                  width={115}
+                  mdWidth={165}
+                  top="-32px"
+                  left="-30px"
+                  mdLeft="-55px"
                   rotate={-14}
                   zIndex={25}
                 />
@@ -485,8 +966,8 @@ export default function App() {
 
               {/* Ceremony Details Scrapbook Card */}
               <div
-                className="scrapbook-card w-full max-w-md md:max-w-lg px-7 py-8 sm:px-9 sm:py-9 md:px-10 md:py-10 text-center"
-                style={{ transform: "rotate(1deg)" }}
+                className="scrapbook-card w-full max-w-md md:max-w-lg px-6 py-8 sm:px-9 sm:py-9 md:px-10 md:py-10 text-center"
+                style={{ transform: "rotate(0.8deg)" }}
               >
                 <div
                   className="washi-tape-pill text-xl sm:text-2xl md:text-[1.65rem]"
@@ -533,7 +1014,7 @@ export default function App() {
                   November 26, 2026 &nbsp;|&nbsp; 1 PM
                 </p>
 
-                <div className="flex items-center justify-center gap-2 my-3.5">
+                <div className="flex items-center justify-center gap-2 my-3">
                   <div
                     style={{
                       height: 1,
@@ -568,7 +1049,7 @@ export default function App() {
                 </div>
 
                 <p
-                  className="text-base sm:text-lg md:text-xl mt-1.5"
+                  className="text-base sm:text-lg md:text-xl mt-1"
                   style={{
                     fontFamily: "'Cormorant Garamond', serif",
                     fontStyle: "italic",
@@ -578,15 +1059,24 @@ export default function App() {
                   Don Bosco Batulao, Nasugbu, Batangas
                 </p>
 
-                <div className="mt-5">
+                <div className="mt-5 flex flex-wrap items-center justify-center gap-2.5">
                   <a
                     href={CHAPEL_GMAPS_URL}
                     target="_blank"
                     rel="noreferrer"
-                    className="gmaps-pill text-[0.65rem] sm:text-xs md:text-[0.78rem] px-4 py-2 sm:px-5 sm:py-2.5"
+                    className="gmaps-pill text-[0.64rem] sm:text-xs md:text-[0.76rem] px-4 py-2.5 sm:px-5"
                   >
                     <MapPin size={14} />
-                    Open in Google Maps
+                    Google Maps
+                  </a>
+                  <a
+                    href={CHAPEL_WAZE_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="waze-pill text-[0.64rem] sm:text-xs md:text-[0.76rem] px-4 py-2.5 sm:px-5"
+                  >
+                    <Navigation size={13} />
+                    Open in Waze
                   </a>
                 </div>
               </div>
@@ -597,7 +1087,7 @@ export default function App() {
           <Reveal animation="fade-up" delay={100} className="w-full">
             <div
               id="reception"
-              className="flex flex-col lg:flex-row-reverse items-center justify-center gap-8 lg:gap-12 pt-4"
+              className="flex flex-col lg:flex-row-reverse items-center justify-center gap-7 lg:gap-12 pt-2"
             >
               {/* Same photo card as website */}
               <div className="relative">
@@ -613,16 +1103,17 @@ export default function App() {
                       src="/images/windsong-t.webp"
                       alt="Windsong Tagaytay — Reception Location"
                       loading="lazy"
-                      className="w-80 sm:w-96 md:w-108 lg:w-115 drop-shadow-2xl"
+                      className="w-78 sm:w-94 md:w-106 lg:w-115 drop-shadow-2xl"
                     />
                   </ImageContainer>
                 </a>
                 <Sticker
                   src="/STICKERS/15.webp"
-                  width={155}
-                  mdWidth={185}
-                  bottom="-50px"
-                  right="-55px"
+                  width={115}
+                  mdWidth={160}
+                  bottom="-34px"
+                  right="-26px"
+                  mdRight="-45px"
                   rotate={12}
                   zIndex={25}
                 />
@@ -630,8 +1121,8 @@ export default function App() {
 
               {/* Reception Details Scrapbook Card */}
               <div
-                className="scrapbook-card w-full max-w-md md:max-w-lg px-7 py-8 sm:px-9 sm:py-9 md:px-10 md:py-10 text-center"
-                style={{ transform: "rotate(-1deg)" }}
+                className="scrapbook-card w-full max-w-md md:max-w-lg px-6 py-8 sm:px-9 sm:py-9 md:px-10 md:py-10 text-center"
+                style={{ transform: "rotate(-0.8deg)" }}
               >
                 <div
                   className="washi-tape-pill text-xl sm:text-2xl md:text-[1.65rem]"
@@ -677,7 +1168,7 @@ export default function App() {
                   Let&rsquo;s continue the celebration!
                 </p>
 
-                <div className="flex items-center justify-center gap-2 my-3.5">
+                <div className="flex items-center justify-center gap-2 my-3">
                   <div
                     style={{
                       height: 1,
@@ -711,15 +1202,24 @@ export default function App() {
                   </a>
                 </div>
 
-                <div className="mt-4">
+                <div className="mt-4 flex flex-wrap items-center justify-center gap-2.5">
                   <a
                     href={WINDSONG_GMAPS_URL}
                     target="_blank"
                     rel="noreferrer"
-                    className="gmaps-pill text-[0.65rem] sm:text-xs md:text-[0.78rem] px-4 py-2 sm:px-5 sm:py-2.5"
+                    className="gmaps-pill text-[0.64rem] sm:text-xs md:text-[0.76rem] px-4 py-2.5 sm:px-5"
                   >
                     <MapPin size={14} />
-                    Open in Google Maps
+                    Google Maps
+                  </a>
+                  <a
+                    href={GORIOS_WAZE_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="waze-pill text-[0.64rem] sm:text-xs md:text-[0.76rem] px-4 py-2.5 sm:px-5"
+                  >
+                    <Navigation size={13} />
+                    Waze (Pin Gorio&rsquo;s)
                   </a>
                 </div>
 
@@ -818,16 +1318,16 @@ export default function App() {
         {/* Overlapping torn paper transition into Gentle Reminders */}
         <TornBannerTitle
           title="A Few Gentle Reminders"
-          className="absolute -bottom-24 sm:-bottom-28 md:-bottom-32 left-0 right-0 z-20 object-cover"
-          height={175}
-          mdHeight={215}
-          lgHeight={255}
+          className="absolute -bottom-22 sm:-bottom-26 md:-bottom-30 left-0 right-0 z-20 object-cover"
+          height={165}
+          mdHeight={210}
+          lgHeight={250}
           stickerSrc="/STICKERS/26.webp"
           stickerProps={{
-            width: 190,
-            mdWidth: 225,
-            top: "-115px",
-            left: "-38px",
+            width: 145,
+            mdWidth: 205,
+            top: "-88px",
+            left: "-28px",
             rotate: -10,
             zIndex: -1,
           }}
@@ -839,11 +1339,11 @@ export default function App() {
       ===================================================================== */}
       <section
         id="reminders"
-        className="bg-[url('/images/banner3cp.webp')] bg-cover bg-position-[25%_20%] bg-no-repeat relative pt-32 sm:pt-36 md:pt-44 pb-44 sm:pb-48 md:pb-56 overflow-x-clip"
+        className="bg-[url('/makati/IMG_7855.webp')] md:bg-[url('/makati/IMG_7350.webp')] bg-cover bg-center bg-no-repeat relative pt-32 sm:pt-36 md:pt-44 pb-48 sm:pb-52 md:pb-60 overflow-x-clip"
       >
-        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+        <div className="absolute inset-0 bg-black/22 pointer-events-none" />
 
-        <div className="relative max-w-3xl lg:max-w-4xl mx-auto px-5 sm:px-6 md:px-8 flex flex-col gap-12 md:gap-14">
+        <div className="relative max-w-3xl lg:max-w-4xl mx-auto px-5 sm:px-6 md:px-8 flex flex-col gap-12 sm:gap-14 md:gap-16">
           {/* Section Subtitle Card */}
           <Reveal animation="fade-up">
             <div className="text-center mb-1">
@@ -868,8 +1368,8 @@ export default function App() {
             return (
               <Reveal
                 key={item.number}
-                animation={idx % 2 === 0 ? "fade-left" : "fade-right"}
-                delay={idx * 60}
+                animation="fade-up"
+                delay={idx * 50}
               >
                 <div
                   className="scrapbook-card px-6 py-7 sm:px-8 sm:py-8 md:px-10 md:py-9"
@@ -900,7 +1400,7 @@ export default function App() {
                     }}
                   />
 
-                  {/* Corner flower sticker */}
+                  {/* Corner flower sticker — placed on top corner opposite tape so it never overlaps text */}
                   {item.sticker && <Sticker {...item.sticker} zIndex={25} />}
 
                   <div className="relative z-10 flex items-start gap-4 md:gap-5 pt-2">
@@ -917,7 +1417,7 @@ export default function App() {
                     </div>
 
                     <div className="flex-1">
-                      <div className="flex items-baseline gap-2.5 flex-wrap">
+                      <div className="flex items-baseline gap-2.5 flex-wrap pr-12 sm:pr-14">
                         <span
                           className="text-sm md:text-base"
                           style={{
@@ -960,7 +1460,29 @@ export default function App() {
                           letterSpacing: "0.01em",
                         }}
                       >
-                        {item.body}
+                        {item.linkHref ? (
+                          <>
+                            {item.bodyBeforeLink}
+                            <a
+                              href={item.linkHref}
+                              target="_blank"
+                              rel="noreferrer"
+                              style={{
+                                color: "#722F37",
+                                fontStyle: "italic",
+                                fontWeight: 500,
+                                textDecoration: "underline",
+                                textDecorationColor: "rgba(114,47,55,0.45)",
+                                textUnderlineOffset: "3px",
+                              }}
+                            >
+                              {item.linkText}
+                            </a>
+                            {item.bodyAfterLink}
+                          </>
+                        ) : (
+                          item.body
+                        )}
                       </p>
 
                       {/* Color Swatches Reference inside Dress Code Card */}
@@ -1008,7 +1530,7 @@ export default function App() {
                                     <span
                                       key={hex}
                                       title={hex}
-                                      className="w-4 h-4 md:w-5 md:h-5"
+                                      className="w-4.5 h-4.5 md:w-5 md:h-5"
                                       style={{
                                         borderRadius: "50%",
                                         backgroundColor: hex,
@@ -1035,10 +1557,10 @@ export default function App() {
         {/* Overlapping torn paper transition into Greatest Gift */}
         <TornBannerTitle
           title="Your Presence is Our Greatest Gift"
-          className="absolute -bottom-24 sm:-bottom-28 md:-bottom-32 left-0 right-0 z-20 object-cover"
-          height={175}
-          mdHeight={215}
-          lgHeight={255}
+          className="absolute -bottom-22 sm:-bottom-26 md:-bottom-30 left-0 right-0 z-20 object-cover"
+          height={165}
+          mdHeight={210}
+          lgHeight={250}
         />
       </section>
 
@@ -1047,14 +1569,14 @@ export default function App() {
       ===================================================================== */}
       <section
         id="gift"
-        className="bg-[url('/images/banner4.webp')] md:bg-center bg-cover bg-no-repeat relative pt-32 sm:pt-36 md:pt-44 pb-28 overflow-hidden"
+        className="bg-[url('/makati/IMG_8306.webp')] md:bg-[url('/makati/IMG_8206.webp')] bg-center bg-cover bg-no-repeat relative pt-32 sm:pt-36 md:pt-44 pb-24 sm:pb-28 md:pb-36 overflow-hidden"
       >
         <div className="absolute inset-0 bg-black/25 pointer-events-none" />
 
         <div className="relative max-w-2xl lg:max-w-3xl mx-auto px-5 sm:px-6 md:px-8 z-10">
           <Reveal animation="fade-up">
             <div
-              className="scrapbook-card px-7 py-10 sm:px-10 sm:py-11 md:px-14 md:py-14 text-center"
+              className="scrapbook-card px-6 py-10 sm:px-10 sm:py-11 md:px-14 md:py-14 text-center"
               style={{
                 transform: "rotate(-0.4deg)",
               }}
@@ -1166,7 +1688,7 @@ export default function App() {
               </p>
 
               {/* BPI QR Polaroid / Stamp Frame */}
-              <div className="flex justify-center my-6">
+              <div className="flex flex-col items-center my-6 gap-3">
                 <div
                   onClick={openGiftModal}
                   role="button"
@@ -1209,6 +1731,16 @@ export default function App() {
                     <span>Tap to enlarge QR code</span>
                   </div>
                 </div>
+
+                {/* One-tap Save QR button for mobile banking apps */}
+                <a
+                  href="/images/bpi.webp"
+                  download="Carl-Cy-BPI-InstaPay-QR.webp"
+                  className="waze-pill text-[0.64rem] sm:text-xs md:text-[0.76rem] px-4 py-2 mt-1"
+                >
+                  <Download size={13} />
+                  Save QR Image for Mobile Banking
+                </a>
               </div>
 
               {/* Divider */}
@@ -1273,21 +1805,26 @@ export default function App() {
           </Reveal>
         </div>
 
+        {/* Makati Prenup FilmStrip Gallery */}
+        <div className="relative z-20 mt-14 sm:mt-16 md:mt-20">
+          <FilmStrip />
+        </div>
+
         <Sticker
           src="/STICKERS/33.webp"
-          width={240}
-          mdWidth={290}
-          bottom="-95px"
-          right="-75px"
+          width={210}
+          mdWidth={280}
+          bottom="-90px"
+          right="-70px"
           rotate={18}
           zIndex={15}
         />
         <Sticker
           src="/STICKERS/27.webp"
-          width={180}
-          mdWidth={210}
+          width={165}
+          mdWidth={205}
           bottom="-65px"
-          left="-65px"
+          left="-60px"
           rotate={-12}
           zIndex={15}
         />
@@ -1328,9 +1865,13 @@ export default function App() {
           >
             ×
           </button>
-          <div style={{ textAlign: "center" }} onClick={(e) => e.stopPropagation()}>
+          <div
+            className="flex flex-col items-center gap-4"
+            style={{ textAlign: "center" }}
+            onClick={(e) => e.stopPropagation()}
+          >
             <p
-              className="text-lg sm:text-xl md:text-2xl mb-3"
+              className="text-lg sm:text-xl md:text-2xl"
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 fontStyle: "italic",
@@ -1345,7 +1886,7 @@ export default function App() {
               alt={qrZoom.label}
               style={{
                 maxWidth: "84vw",
-                maxHeight: "78vh",
+                maxHeight: "72vh",
                 objectFit: "contain",
                 borderRadius: 6,
                 background: "#fff",
@@ -1353,6 +1894,14 @@ export default function App() {
                 boxShadow: "0 20px 60px rgba(0,0,0,0.45)",
               }}
             />
+            <a
+              href={qrZoom.src}
+              download="Carl-Cy-BPI-InstaPay-QR.webp"
+              className="gmaps-pill text-xs px-5 py-2.5"
+            >
+              <Download size={14} />
+              Save QR Image
+            </a>
           </div>
         </div>
       )}
