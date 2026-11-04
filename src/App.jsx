@@ -346,17 +346,17 @@ export default function App() {
               className="w-20 sm:w-24 object-contain pointer-events-none select-none absolute -top-4 left-1 -rotate-18 z-10 opacity-90 drop-shadow"
             />
 
-            {/* Left Polaroid: Couple holding "Getting Married! ♡ 11.26.26" Pizza Box */}
+            {/* Left Polaroid: Cafe Veil Portrait (IMG_7555) */}
             <div
               onClick={() =>
                 setQrZoom({
-                  src: "/makati/IMG_8448.webp",
-                  label: "Getting Married! ♡ 11.26.26",
+                  src: "/makati/IMG_7555.webp",
+                  label: "Forever starts here ♡",
                 })
               }
               role="button"
               tabIndex={0}
-              className="relative bg-[#fffdf8] p-1.5 pb-4 sm:p-2 sm:pb-5 shadow-2xl cursor-zoom-in w-[47%] z-20"
+              className="relative bg-[#fffdf8] p-1.5 pb-4 sm:p-2 sm:pb-5 shadow-2xl cursor-zoom-in w-[49%] z-20"
               style={{
                 transform: "rotate(-5.5deg) translateX(6px)",
                 border: "1px solid rgba(114,47,55,0.16)",
@@ -375,9 +375,9 @@ export default function App() {
                 }}
               />
               <img
-                src="/makati/IMG_8448.webp"
-                alt="Carl and Cy holding Getting Married pizza box"
-                className="w-full h-33 sm:h-38 object-cover object-top"
+                src="/makati/IMG_7555.webp"
+                alt="Carl and Cy at cafe"
+                className="w-full h-33 sm:h-38 object-cover"
                 fetchPriority="high"
                 loading="eager"
               />
@@ -389,21 +389,21 @@ export default function App() {
                   lineHeight: 1,
                 }}
               >
-                Getting Married! ♡
+                Forever starts here ♡
               </p>
             </div>
 
-            {/* Right Polaroid: Close-Up of "Getting Married! ♡ 11.26.26" Pizza Box & Bouquet */}
+            {/* Right Polaroid: Feeding Pizza (IMG_8421) */}
             <div
               onClick={() =>
                 setQrZoom({
-                  src: "/makati/IMG_8385.webp",
-                  label: "Getting Married! ♡ 11.26.26",
+                  src: "/makati/IMG_8421.webp",
+                  label: "A slice of forever ♡",
                 })
               }
               role="button"
               tabIndex={0}
-              className="relative bg-[#fffdf8] p-1.5 pb-4 sm:p-2 sm:pb-5 shadow-2xl cursor-zoom-in w-[51%] z-25"
+              className="relative bg-[#fffdf8] p-1.5 pb-4 sm:p-2 sm:pb-5 shadow-2xl cursor-zoom-in w-[49%] z-25"
               style={{
                 transform: "rotate(4.5deg) translateX(-6px) translateY(4px)",
                 border: "1px solid rgba(114,47,55,0.16)",
@@ -422,8 +422,8 @@ export default function App() {
                 }}
               />
               <img
-                src="/makati/IMG_8385.webp"
-                alt="Getting Married 11.26.26 pizza box close-up with bouquet"
+                src="/makati/IMG_8421.webp"
+                alt="Cy feeding Carl pizza"
                 className="w-full h-33 sm:h-38 object-cover"
                 fetchPriority="high"
                 loading="eager"
@@ -436,7 +436,7 @@ export default function App() {
                   lineHeight: 1,
                 }}
               >
-                Pizza &amp; Forever · 11·26·26
+                A slice of forever ♡
               </p>
             </div>
           </div>
@@ -1618,8 +1618,8 @@ export default function App() {
                 your presence and well wishes.
               </p>
 
-              {/* BPI QR Polaroid / Stamp Frame */}
-              <div className="flex flex-col items-center my-6 gap-3">
+              {/* BPI QR Stamp Frame */}
+              <div className="flex flex-col items-center my-6 gap-2.5">
                 <div
                   onClick={openGiftModal}
                   role="button"
@@ -1627,31 +1627,18 @@ export default function App() {
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ") openGiftModal();
                   }}
-                  className="group cursor-zoom-in bg-white p-4 pb-5 md:p-5 md:pb-6 shadow-lg transition-transform duration-300 hover:scale-[1.03] max-w-[260px] md:max-w-[300px]"
+                  className="group cursor-zoom-in transition-transform duration-300 hover:scale-[1.03] max-w-[270px] sm:max-w-[300px] md:max-w-[330px]"
                   style={{
-                    border: "1px solid rgba(114,47,55,0.16)",
                     transform: "rotate(1deg)",
                   }}
                 >
-                  <p
-                    className="text-xs sm:text-sm md:text-[0.82rem] mb-2"
-                    style={{
-                      fontFamily: "'Jost', sans-serif",
-                      fontWeight: 400,
-                      letterSpacing: "0.24em",
-                      color: "#722F37",
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    BPI InstaPay QR
-                  </p>
                   <img
                     src="/images/bpi.webp"
                     alt="BPI InstaPay QR Code — Carl & Cy"
-                    className="w-52 h-52 md:w-60 md:h-60 object-contain mx-auto rounded-sm"
+                    className="w-full h-auto object-contain mx-auto drop-shadow-xl"
                   />
                   <div
-                    className="mt-2.5 flex items-center justify-center gap-1.5 text-sm sm:text-base md:text-lg"
+                    className="mt-2 flex items-center justify-center gap-1.5 text-sm sm:text-base md:text-lg"
                     style={{
                       fontFamily: "'Cormorant Garamond', serif",
                       fontStyle: "italic",
