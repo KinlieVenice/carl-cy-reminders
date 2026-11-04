@@ -772,15 +772,6 @@ export default function App() {
                   rotate={-8}
                   zIndex={35}
                 />
-                <Sticker
-                  src="/STICKERS/envelope-stamp.webp"
-                  width={60}
-                  mdWidth={84}
-                  bottom="-18px"
-                  right="-8px"
-                  rotate={14}
-                  zIndex={35}
-                />
               </div>
             </div>
 
@@ -1017,7 +1008,7 @@ export default function App() {
                     className="venue-link text-xl sm:text-2xl md:text-3xl lg:text-[2rem]"
                   >
                     <MapPin className="w-5 h-5 md:w-6 md:h-6 shrink-0" style={{ color: "#722F37" }} />
-                    <span>CHAPEL ON THE HILL</span>
+                    <span>Chapel on the Hill</span>
                     <ExternalLink className="w-4 h-4 md:w-5 md:h-5 shrink-0 opacity-65" />
                   </a>
                 </div>
