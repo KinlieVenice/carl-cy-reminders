@@ -2,45 +2,39 @@ import { useEffect, useState } from "react";
 
 function Box({ value, label }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "4px" }}>
+    <div className="flex flex-col items-center gap-1">
       <div
+        className="min-w-[68px] sm:min-w-[80px] md:min-w-[94px] lg:min-w-[106px] px-2.5 py-2 sm:px-3.5 sm:py-2.5 md:px-4 md:py-3 flex flex-col items-center gap-1"
         style={{
           border: "2.5px solid rgba(255,255,255,1)",
           borderRadius: "6px",
-          minWidth: "72px",
-          padding: "10px 8px 8px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "3px",
-          background: "rgba(0,0,0,0.18)",
-          backdropFilter: "blur(2px)",
-          filter: "drop-shadow(0 1px 3px rgba(0,0,0,0.7))",
+          background: "rgba(0,0,0,0.22)",
+          backdropFilter: "blur(3px)",
+          filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.75))",
         }}
       >
         <span
+          className="text-3xl sm:text-4xl md:text-[2.75rem] lg:text-[3.1rem] leading-none"
           style={{
             fontFamily: "'Cormorant Garamond', serif",
             fontWeight: 300,
-            fontSize: "2.4rem",
-            lineHeight: 1,
             color: "#fff",
             letterSpacing: "0.02em",
-            textShadow: "0 1px 4px rgba(0,0,0,0.8)",
+            textShadow: "0 1px 6px rgba(0,0,0,0.85)",
           }}
         >
           {String(value).padStart(2, "0")}
         </span>
-        <div style={{ width: "100%", height: "1px", background: "rgba(255,255,255,0.6)" }} />
+        <div style={{ width: "100%", height: "1px", background: "rgba(255,255,255,0.65)" }} />
         <span
+          className="text-[0.55rem] sm:text-[0.64rem] md:text-[0.72rem] lg:text-[0.78rem]"
           style={{
             fontFamily: "'Jost', sans-serif",
             fontWeight: 400,
-            fontSize: "0.58rem",
             letterSpacing: "0.18em",
             color: "#fff",
             textTransform: "uppercase",
-            textShadow: "0 1px 3px rgba(0,0,0,0.8)",
+            textShadow: "0 1px 4px rgba(0,0,0,0.85)",
           }}
         >
           {label}
@@ -69,55 +63,48 @@ function Countdown({ targetDate }) {
   });
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "4px",
-        marginTop: "0.8rem",
-        marginBottom: "0.4rem",
-      }}
-    >
-      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-        <div style={{ width: "40px", height: "1px", background: "rgba(255,255,255,0.6)" }} />
+    <div className="relative z-30 flex flex-col items-center gap-1.5 sm:gap-2">
+      <div className="flex items-center gap-2.5">
+        <div className="w-10 sm:w-14 md:w-16 h-[1px] bg-white/70" />
         <span
+          className="text-xs sm:text-sm md:text-base"
           style={{
             fontFamily: "'Cormorant Garamond', serif",
-            fontSize: "0.7rem",
-            color: "rgba(255,255,255,0.8)",
+            color: "rgba(255,255,255,0.9)",
             lineHeight: 1,
+            textShadow: "0 1px 4px rgba(0,0,0,0.8)",
           }}
         >
           ✦
         </span>
-        <div style={{ width: "40px", height: "1px", background: "rgba(255,255,255,0.6)" }} />
+        <div className="w-10 sm:w-14 md:w-16 h-[1px] bg-white/70" />
       </div>
+
       <p
+        className="text-xl sm:text-2xl md:text-3xl lg:text-[2.1rem] text-center px-2"
         style={{
           fontFamily: "'Cormorant Garamond', serif",
           fontWeight: 500,
           fontStyle: "italic",
-          fontSize: "1.6rem",
           letterSpacing: "0.12em",
           color: "#fff",
           margin: 0,
-          textShadow: "0 1px 4px rgba(0,0,0,0.8)",
+          textShadow: "0 2px 8px rgba(0,0,0,0.9), 0 0 2px rgba(0,0,0,0.8)",
         }}
       >
         Counting Down To Our Day
       </p>
 
-      <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+      <div className="flex gap-2.5 sm:gap-3.5 md:gap-4 items-center mt-1">
         <Box value={timeLeft.days} label="Days" />
 
         <span
+          className="text-2xl sm:text-3xl md:text-4xl mb-4"
           style={{
             fontFamily: "'Cormorant Garamond', serif",
-            fontSize: "1.8rem",
             fontWeight: 300,
-            color: "rgba(255,255,255,0.5)",
-            marginBottom: "18px",
+            color: "rgba(255,255,255,0.65)",
+            textShadow: "0 1px 4px rgba(0,0,0,0.8)",
           }}
         >
           ·
@@ -126,12 +113,12 @@ function Countdown({ targetDate }) {
         <Box value={timeLeft.hours} label="Hours" />
 
         <span
+          className="text-2xl sm:text-3xl md:text-4xl mb-4"
           style={{
             fontFamily: "'Cormorant Garamond', serif",
-            fontSize: "1.8rem",
             fontWeight: 300,
-            color: "rgba(255,255,255,0.5)",
-            marginBottom: "18px",
+            color: "rgba(255,255,255,0.65)",
+            textShadow: "0 1px 4px rgba(0,0,0,0.8)",
           }}
         >
           ·
