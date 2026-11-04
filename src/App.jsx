@@ -324,20 +324,125 @@ export default function App() {
       ===================================================================== */}
       <section
         id="home"
-        className="relative bg-[url('/makati/IMG_8296.webp')] bg-size-[185%_auto] sm:bg-size-[160%_auto] lg:bg-cover bg-no-repeat bg-top pt-8 sm:pt-10 md:pt-14 pb-52 sm:pb-56 md:pb-68 overflow-x-clip"
+        className="relative bg-[url('/makati/IMG_8296.webp')] bg-size-[215%_auto] sm:bg-size-[170%_auto] lg:bg-cover bg-no-repeat bg-top pt-5 sm:pt-8 md:pt-12 pb-48 sm:pb-54 md:pb-68 overflow-x-clip"
       >
         {/* Warm editorial vignette overlay so the scrapbook collage pops */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "linear-gradient(180deg, rgba(28, 12, 15, 0.42) 0%, rgba(28, 12, 15, 0.24) 50%, rgba(28, 12, 15, 0.52) 100%)",
+              "linear-gradient(180deg, rgba(28, 12, 15, 0.38) 0%, rgba(28, 12, 15, 0.18) 50%, rgba(28, 12, 15, 0.48) 100%)",
           }}
         />
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 flex flex-col items-center">
+          {/* ── MOBILE & TABLET (< lg): FANNED PIZZA POLAROID DUO AT TOP (CLIPPED TO POSTCARD BELOW) ── */}
+          <div className="lg:hidden relative w-full max-w-[360px] sm:max-w-[400px] mx-auto flex items-center justify-center pt-1">
+            {/* Pressed lavender sprig peeking behind left polaroid */}
+            <img
+              src="/STICKERS/lavender.webp"
+              alt=""
+              aria-hidden="true"
+              className="w-20 sm:w-24 object-contain pointer-events-none select-none absolute -top-4 left-1 -rotate-18 z-10 opacity-90 drop-shadow"
+            />
+
+            {/* Left Polaroid: Couple holding "Getting Married! ♡ 11.26.26" Pizza Box */}
+            <div
+              onClick={() =>
+                setQrZoom({
+                  src: "/makati/IMG_8448.webp",
+                  label: "Getting Married! ♡ 11.26.26",
+                })
+              }
+              role="button"
+              tabIndex={0}
+              className="relative bg-[#fffdf8] p-1.5 pb-4 sm:p-2 sm:pb-5 shadow-2xl cursor-zoom-in w-[47%] z-20"
+              style={{
+                transform: "rotate(-5.5deg) translateX(6px)",
+                border: "1px solid rgba(114,47,55,0.16)",
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  top: "-7px",
+                  left: "50%",
+                  transform: "translateX(-50%) rotate(-2deg)",
+                  width: "54px",
+                  height: "14px",
+                  background: "rgba(140, 60, 68, 0.82)",
+                  boxShadow: "0 2px 5px rgba(0,0,0,0.18)",
+                }}
+              />
+              <img
+                src="/makati/IMG_8448.webp"
+                alt="Carl and Cy holding Getting Married pizza box"
+                className="w-full h-33 sm:h-38 object-cover object-top"
+                fetchPriority="high"
+                loading="eager"
+              />
+              <p
+                className="text-center text-[0.95rem] sm:text-base mt-1 whitespace-nowrap"
+                style={{
+                  fontFamily: "'Great Vibes', cursive",
+                  color: "#722F37",
+                  lineHeight: 1,
+                }}
+              >
+                Getting Married! ♡
+              </p>
+            </div>
+
+            {/* Right Polaroid: Close-Up of "Getting Married! ♡ 11.26.26" Pizza Box & Bouquet */}
+            <div
+              onClick={() =>
+                setQrZoom({
+                  src: "/makati/IMG_8385.webp",
+                  label: "Getting Married! ♡ 11.26.26",
+                })
+              }
+              role="button"
+              tabIndex={0}
+              className="relative bg-[#fffdf8] p-1.5 pb-4 sm:p-2 sm:pb-5 shadow-2xl cursor-zoom-in w-[51%] z-25"
+              style={{
+                transform: "rotate(4.5deg) translateX(-6px) translateY(4px)",
+                border: "1px solid rgba(114,47,55,0.16)",
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  top: "-7px",
+                  left: "50%",
+                  transform: "translateX(-50%) rotate(2deg)",
+                  width: "54px",
+                  height: "14px",
+                  background: "rgba(107, 112, 65, 0.85)",
+                  boxShadow: "0 2px 5px rgba(0,0,0,0.18)",
+                }}
+              />
+              <img
+                src="/makati/IMG_8385.webp"
+                alt="Getting Married 11.26.26 pizza box close-up with bouquet"
+                className="w-full h-33 sm:h-38 object-cover"
+                fetchPriority="high"
+                loading="eager"
+              />
+              <p
+                className="text-center text-[0.95rem] sm:text-base mt-1 whitespace-nowrap"
+                style={{
+                  fontFamily: "'Great Vibes', cursive",
+                  color: "#722F37",
+                  lineHeight: 1,
+                }}
+              >
+                Pizza &amp; Forever · 11·26·26
+              </p>
+            </div>
+          </div>
+
           {/* 3-Column Desktop / Layered Mobile Scrapbook Spread */}
-          <div className="w-full grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-4">
+          <div className="w-full grid grid-cols-1 lg:grid-cols-12 items-center gap-6 lg:gap-4 mt-4 lg:mt-0">
             {/* ── LEFT WING (Desktop): Cafe Veil + Feeding Pizza Polaroids ── */}
             <div className="hidden lg:flex lg:col-span-3 flex-col items-center relative">
               {/* Pressed lavender sprig behind polaroid */}
@@ -433,41 +538,42 @@ export default function App() {
 
             {/* ── CENTERPIECE: "OUR WEDDING DAY" VINTAGE POSTCARD & LOVE LETTER ── */}
             <div className="lg:col-span-6 flex justify-center relative z-30">
-              <div className="relative w-full max-w-[430px] sm:max-w-[470px] md:max-w-[510px]">
-                {/* C&C Monogrammed Parchment Envelope peeking from top-left behind postcard */}
+              <div className="relative w-full max-w-[385px] sm:max-w-[440px] md:max-w-[500px]">
+                {/* C&C Monogrammed Parchment Envelope peeking from top-left behind postcard (desktop/tablet) */}
                 <img
                   src="/STICKERS/envelope.webp"
                   alt=""
                   aria-hidden="true"
-                  className="w-36 sm:w-44 md:w-48 object-contain pointer-events-none select-none absolute -top-9 -left-6 sm:-left-10 -rotate-12 z-0 opacity-95 drop-shadow-lg"
+                  className="hidden sm:block w-40 md:w-48 object-contain pointer-events-none select-none absolute -top-9 -left-8 -rotate-12 z-0 opacity-95 drop-shadow-lg"
                 />
 
                 {/* Pressed floral sticker peeking top-right */}
                 <Sticker
                   src="/STICKERS/36.webp"
-                  width={95}
-                  mdWidth={125}
-                  top="-34px"
-                  right="-18px"
+                  width={76}
+                  mdWidth={120}
+                  top="-28px"
+                  right="-10px"
+                  mdRight="-18px"
                   rotate={14}
                   zIndex={10}
                 />
 
                 {/* Main Postcard / Love-Note Card */}
                 <div
-                  className="scrapbook-card relative z-20 px-6 py-8 sm:px-9 sm:py-9 md:px-11 md:py-10"
+                  className="scrapbook-card relative z-20 px-5 py-6 sm:px-8 sm:py-8 md:px-11 md:py-10"
                   style={{
-                    transform: "rotate(0.6deg)",
+                    transform: "rotate(0.5deg)",
                     backgroundImage:
                       "radial-gradient(rgba(114,47,55,0.03) 1px, transparent 0), linear-gradient(135deg, #fffdf9 0%, #f9f1e2 100%)",
                     backgroundSize: "18px 18px, 100% 100%",
                     border: "1px solid #eadbc2",
                   }}
                 >
-                  {/* Realistic Metallic Silver Paperclip SVG on Top-Left Edge */}
+                  {/* Realistic Metallic Silver Paperclip SVG on Top-Left Edge (clips Postcard to Polaroids on mobile!) */}
                   <svg
                     viewBox="0 0 36 90"
-                    className="w-6 sm:w-7 md:w-8 h-auto absolute -top-6 left-7 sm:left-9 z-40 pointer-events-none drop-shadow-md"
+                    className="w-5.5 sm:w-7 md:w-8 h-auto absolute -top-5 sm:-top-6 left-6 sm:left-9 z-40 pointer-events-none drop-shadow-md"
                     fill="none"
                   >
                     <path
@@ -488,9 +594,9 @@ export default function App() {
 
                   {/* Washi tape top center */}
                   <div
-                    className="washi-tape-pill text-xl sm:text-2xl md:text-[1.65rem]"
+                    className="washi-tape-pill text-lg sm:text-2xl md:text-[1.65rem]"
                     style={{
-                      top: "-16px",
+                      top: "-14px",
                       left: "50%",
                       transform: "translateX(-50%) rotate(-1.5deg)",
                     }}
@@ -502,7 +608,7 @@ export default function App() {
                   <div
                     style={{
                       position: "absolute",
-                      inset: "8px",
+                      inset: "7px",
                       border: "1px solid rgba(114,47,55,0.18)",
                       pointerEvents: "none",
                     }}
@@ -510,7 +616,7 @@ export default function App() {
                   <div
                     style={{
                       position: "absolute",
-                      inset: "12px",
+                      inset: "11px",
                       border: "1px dashed rgba(114,47,55,0.12)",
                       pointerEvents: "none",
                     }}
@@ -518,10 +624,10 @@ export default function App() {
 
                   {/* Vintage Postmark Cancellation Stamp in Top-Right Corner */}
                   <div
-                    className="absolute top-4 right-4 sm:top-5 sm:right-6 pointer-events-none select-none opacity-35"
+                    className="absolute top-3.5 right-3.5 sm:top-5 sm:right-6 pointer-events-none select-none opacity-30 sm:opacity-35"
                     style={{ transform: "rotate(12deg)" }}
                   >
-                    <svg width="76" height="44" viewBox="0 0 110 64" fill="none">
+                    <svg className="w-15 sm:w-19 h-auto" viewBox="0 0 110 64" fill="none">
                       <circle cx="32" cy="32" r="26" stroke="#722F37" strokeWidth="1.8" strokeDasharray="3 2" />
                       <circle cx="32" cy="32" r="21" stroke="#722F37" strokeWidth="1" />
                       <text
@@ -556,13 +662,13 @@ export default function App() {
                     </svg>
                   </div>
 
-                  <div className="text-center relative z-10 pt-2">
+                  <div className="text-center relative z-10 pt-1.5">
                     <p
-                      className="text-[0.62rem] sm:text-xs md:text-[0.76rem] mb-1"
+                      className="text-[0.58rem] sm:text-xs md:text-[0.76rem] mb-1"
                       style={{
                         fontFamily: "'Jost', sans-serif",
                         fontWeight: 400,
-                        letterSpacing: "0.3em",
+                        letterSpacing: "0.26em",
                         textTransform: "uppercase",
                         color: "#6B7041",
                       }}
@@ -571,7 +677,7 @@ export default function App() {
                     </p>
 
                     <h1
-                      className="text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.45rem]"
+                      className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.45rem]"
                       style={{
                         fontFamily: "'Cormorant Garamond', serif",
                         fontStyle: "italic",
@@ -586,11 +692,11 @@ export default function App() {
                     </h1>
 
                     {/* Ornamental divider */}
-                    <div className="flex items-center justify-center gap-2.5 my-3">
+                    <div className="flex items-center justify-center gap-2.5 my-2.5">
                       <div
                         style={{
                           height: 1,
-                          width: 48,
+                          width: 44,
                           background: "linear-gradient(90deg, transparent, rgba(114,47,55,0.4))",
                         }}
                       />
@@ -600,14 +706,14 @@ export default function App() {
                       <div
                         style={{
                           height: 1,
-                          width: 48,
+                          width: 44,
                           background: "linear-gradient(90deg, rgba(114,47,55,0.4), transparent)",
                         }}
                       />
                     </div>
 
                     <p
-                      className="text-base sm:text-lg md:text-xl lg:text-[1.24rem] leading-relaxed px-1"
+                      className="text-[0.98rem] sm:text-lg md:text-xl lg:text-[1.24rem] leading-relaxed px-1"
                       style={{
                         fontFamily: "'Cormorant Garamond', serif",
                         fontWeight: 400,
@@ -620,9 +726,9 @@ export default function App() {
                       enjoyable as possible.
                     </p>
 
-                    {/* Venue & Time Mini Summary Strip inside Postcard */}
+                    {/* Venue & Time Mini Summary Strip inside Postcard — stays on 1 clean line */}
                     <div
-                      className="mt-4 mb-4 py-2 px-3 mx-auto max-w-xs flex items-center justify-center gap-3 text-xs sm:text-sm"
+                      className="mt-3.5 mb-3.5 py-1.5 px-2.5 mx-auto flex items-center justify-center gap-2 sm:gap-3 text-[0.78rem] sm:text-sm whitespace-nowrap"
                       style={{
                         fontFamily: "'Cormorant Garamond', serif",
                         fontStyle: "italic",
@@ -639,16 +745,16 @@ export default function App() {
                       <span>Windsong</span>
                     </div>
 
-                    <div className="flex flex-wrap items-center justify-center gap-2.5">
+                    <div className="flex items-center justify-center gap-2 sm:gap-2.5">
                       <a
                         href="#ceremony"
-                        className="gmaps-pill text-[0.64rem] sm:text-xs md:text-[0.74rem] px-4 py-2.5 sm:px-5"
+                        className="gmaps-pill text-[0.6rem] sm:text-xs md:text-[0.74rem] px-3.5 py-2 sm:px-5 sm:py-2.5 whitespace-nowrap"
                       >
                         <span>✦</span> Venues &amp; Maps
                       </a>
                       <a
                         href="#reminders"
-                        className="waze-pill text-[0.64rem] sm:text-xs md:text-[0.74rem] px-4 py-2.5 sm:px-5"
+                        className="waze-pill text-[0.6rem] sm:text-xs md:text-[0.74rem] px-3.5 py-2 sm:px-5 sm:py-2.5 whitespace-nowrap"
                       >
                         Gentle Reminders
                       </a>
@@ -659,19 +765,19 @@ export default function App() {
                 {/* C&C Burgundy Wax Seal stamped on bottom-left corner of postcard */}
                 <Sticker
                   src="/STICKERS/MONOG.webp"
-                  width={74}
+                  width={64}
                   mdWidth={92}
-                  bottom="-26px"
-                  left="-14px"
+                  bottom="-22px"
+                  left="-10px"
                   rotate={-8}
                   zIndex={35}
                 />
                 <Sticker
                   src="/STICKERS/envelope-stamp.webp"
-                  width={68}
+                  width={60}
                   mdWidth={84}
-                  bottom="-22px"
-                  right="-10px"
+                  bottom="-18px"
+                  right="-8px"
                   rotate={14}
                   zIndex={35}
                 />
@@ -764,140 +870,8 @@ export default function App() {
             </div>
           </div>
 
-          {/* ── MOBILE & TABLET (< lg): FANNED PIZZA & PRENUP POLAROID SCRAPBOOK COLLAGE ── */}
-          <div className="lg:hidden relative w-full max-w-md mx-auto mt-7 mb-1 flex flex-col items-center">
-            {/* Top Pair: Fanned Left & Right Pizza Polaroids */}
-            <div className="flex items-center justify-center w-full px-1">
-              {/* Left Polaroid: Carl & Cy holding "Getting Married! ♡ 11.26.26" Pizza Box */}
-              <div
-                onClick={() =>
-                  setQrZoom({
-                    src: "/makati/IMG_8448.webp",
-                    label: "Getting Married! ♡ 11.26.26",
-                  })
-                }
-                role="button"
-                tabIndex={0}
-                className="relative bg-[#fffdf8] p-2 pb-5 shadow-2xl cursor-zoom-in w-[48%] max-w-[185px] z-20"
-                style={{
-                  transform: "rotate(-4.5deg)",
-                  border: "1px solid rgba(114,47,55,0.15)",
-                }}
-              >
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "-8px",
-                    left: "50%",
-                    transform: "translateX(-50%) rotate(-2deg)",
-                    width: "62px",
-                    height: "16px",
-                    background: "rgba(140, 60, 68, 0.82)",
-                    boxShadow: "0 2px 5px rgba(0,0,0,0.18)",
-                  }}
-                />
-                <img
-                  src="/makati/IMG_8448.webp"
-                  alt="Carl and Cy holding Getting Married pizza box"
-                  className="w-full h-40 sm:h-44 object-cover object-top"
-                  loading="eager"
-                />
-                <p
-                  className="text-center text-base sm:text-lg mt-1.5 whitespace-nowrap"
-                  style={{
-                    fontFamily: "'Great Vibes', cursive",
-                    color: "#722F37",
-                    lineHeight: 1,
-                  }}
-                >
-                  Getting Married! ♡
-                </p>
-              </div>
-
-              {/* Right Polaroid: Close-Up of "Getting Married! ♡ 11.26.26" Pizza Box & Bouquet */}
-              <div
-                onClick={() =>
-                  setQrZoom({
-                    src: "/makati/IMG_8371.webp",
-                    label: "Getting Married! ♡ 11.26.26",
-                  })
-                }
-                role="button"
-                tabIndex={0}
-                className="relative bg-[#fffdf8] p-2 pb-5 shadow-2xl cursor-zoom-in w-[54%] max-w-[205px] -ml-3 mt-4 z-30"
-                style={{
-                  transform: "rotate(4deg)",
-                  border: "1px solid rgba(114,47,55,0.15)",
-                }}
-              >
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "-8px",
-                    left: "50%",
-                    transform: "translateX(-50%) rotate(2deg)",
-                    width: "62px",
-                    height: "16px",
-                    background: "rgba(107, 112, 65, 0.85)",
-                    boxShadow: "0 2px 5px rgba(0,0,0,0.18)",
-                  }}
-                />
-                <img
-                  src="/makati/IMG_8371.webp"
-                  alt="Getting Married 11.26.26 pizza box close-up"
-                  className="w-full h-36 sm:h-40 object-cover"
-                  loading="eager"
-                />
-                <p
-                  className="text-center text-base sm:text-lg mt-1.5 whitespace-nowrap"
-                  style={{
-                    fontFamily: "'Great Vibes', cursive",
-                    color: "#722F37",
-                    lineHeight: 1,
-                  }}
-                >
-                  Pizza &amp; Forever · 11·26·26
-                </p>
-              </div>
-            </div>
-
-            {/* Bottom Overlapping Center Polaroid: Feeding Pizza / Cafe Veil */}
-            <div
-              onClick={() =>
-                setQrZoom({
-                  src: "/makati/IMG_8421.webp",
-                  label: "A Slice of Forever · Carl & Cy",
-                })
-              }
-              role="button"
-              tabIndex={0}
-              className="relative bg-[#fffdf8] p-2 pb-5 shadow-2xl cursor-zoom-in w-[62%] max-w-[230px] -mt-4 z-30"
-              style={{
-                transform: "rotate(-1.5deg)",
-                border: "1px solid rgba(114,47,55,0.15)",
-              }}
-            >
-              <img
-                src="/makati/IMG_8421.webp"
-                alt="Cy feeding Carl pizza"
-                className="w-full h-32 sm:h-36 object-cover"
-                loading="eager"
-              />
-              <p
-                className="text-center text-base sm:text-lg mt-1.5 whitespace-nowrap"
-                style={{
-                  fontFamily: "'Great Vibes', cursive",
-                  color: "#722F37",
-                  lineHeight: 1,
-                }}
-              >
-                A slice of forever ♡
-              </p>
-            </div>
-          </div>
-
           {/* Countdown to Nov 26, 2026 1:00 PM */}
-          <div className="mt-8 sm:mt-10 md:mt-12">
+          <div className="mt-7 sm:mt-9 md:mt-12">
             <Countdown targetDate="2026-11-26T13:00:00" />
           </div>
         </div>
