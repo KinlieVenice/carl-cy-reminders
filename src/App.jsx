@@ -324,14 +324,14 @@ export default function App() {
       ===================================================================== */}
       <section
         id="home"
-        className="relative bg-[url('/makati/IMG_8296.webp')] bg-size-[215%_auto] sm:bg-size-[170%_auto] lg:bg-cover bg-no-repeat bg-top pt-5 sm:pt-8 md:pt-12 pb-48 sm:pb-54 md:pb-68 overflow-x-clip"
+        className="relative bg-[url('/makati/IMG_8296.webp')] bg-cover bg-no-repeat bg-position-[50%_88%] lg:bg-position-[50%_58%] pt-5 sm:pt-8 md:pt-10 pb-76 sm:pb-80 md:pb-40 lg:pb-44 overflow-x-clip"
       >
-        {/* Warm editorial vignette overlay so the scrapbook collage pops */}
+        {/* Subtle top gradient so the collage & countdown pop while keeping the couple bright below */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "linear-gradient(180deg, rgba(28, 12, 15, 0.38) 0%, rgba(28, 12, 15, 0.18) 50%, rgba(28, 12, 15, 0.48) 100%)",
+              "linear-gradient(180deg, rgba(22, 10, 12, 0.36) 0%, rgba(22, 10, 12, 0.22) 55%, rgba(22, 10, 12, 0.05) 78%, rgba(22, 10, 12, 0.18) 100%)",
           }}
         />
 
@@ -871,7 +871,7 @@ export default function App() {
           </div>
 
           {/* Countdown to Nov 26, 2026 1:00 PM */}
-          <div className="mt-7 sm:mt-9 md:mt-12">
+          <div className="mt-7 sm:mt-9 lg:mt-22">
             <Countdown targetDate="2026-11-26T13:00:00" />
           </div>
         </div>
