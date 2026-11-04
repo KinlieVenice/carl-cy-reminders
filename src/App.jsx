@@ -1267,7 +1267,7 @@ export default function App() {
                   color: "#6B7041",
                 }}
               >
-                November 26, 2026 &nbsp;·&nbsp; #CARLfoundTheRightCY
+                November 26, 2026 &nbsp;·&nbsp; #CyYesToCarl
               </p>
             </div>
           </Reveal>
