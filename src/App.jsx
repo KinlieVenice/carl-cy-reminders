@@ -329,7 +329,7 @@ export default function App() {
       ===================================================================== */}
       <section
         id="home"
-        className="relative bg-[url('/makati/IMG_8296.webp')] bg-cover bg-no-repeat bg-position-[50%_55%] lg:bg-position-[50%_58%] pt-3 sm:pt-6 md:pt-10 pb-18 sm:pb-24 md:pb-36 lg:pb-42 overflow-x-clip"
+        className="relative bg-[url('/makati/IMG_8296.webp')] bg-cover bg-no-repeat bg-position-[50%_55%] lg:bg-position-[50%_58%] pt-2.5 sm:pt-6 md:pt-10 pb-20 sm:pb-24 md:pb-36 lg:pb-42 overflow-x-clip"
       >
         {/* Subtle top gradient so the collage & countdown pop while keeping the couple bright below */}
         <div
@@ -447,7 +447,7 @@ export default function App() {
           </div>
 
           {/* 3-Column Desktop / Layered Mobile Scrapbook Spread */}
-          <div className="w-full grid grid-cols-1 lg:grid-cols-12 items-center gap-5 lg:gap-4 mt-6 sm:mt-8 lg:mt-0">
+          <div className="w-full grid grid-cols-1 lg:grid-cols-12 items-center gap-4 lg:gap-4 mt-4.5 sm:mt-8 lg:mt-0">
             {/* ── LEFT WING (Desktop): Cafe Veil + Feeding Pizza Polaroids ── */}
             <div className="hidden lg:flex lg:col-span-3 flex-col items-center relative">
               {/* Pressed lavender sprig behind polaroid */}
@@ -566,7 +566,7 @@ export default function App() {
 
                 {/* Main Postcard / Love-Note Card */}
                 <div
-                  className="scrapbook-card relative z-20 px-4 pt-7 pb-5 sm:px-7 sm:pt-8 sm:pb-7 md:px-11 md:py-10"
+                  className="scrapbook-card relative z-20 px-4 pt-5.5 pb-3.5 sm:px-7 sm:pt-8 sm:pb-7 md:px-11 md:py-10"
                   style={{
                     transform: "rotate(0.5deg)",
                     backgroundImage:
@@ -667,7 +667,7 @@ export default function App() {
                     </svg>
                   </div>
 
-                  <div className="text-center relative z-10 pt-1">
+                  <div className="text-center relative z-10">
                     <p
                       className="text-[0.54rem] sm:text-xs md:text-[0.76rem] mb-0.5 sm:mb-1"
                       style={{
@@ -697,7 +697,7 @@ export default function App() {
                     </h1>
 
                     {/* Ornamental divider */}
-                    <div className="flex items-center justify-center gap-2 my-1.5 sm:my-2.5">
+                    <div className="flex items-center justify-center gap-2 my-1 sm:my-2.5">
                       <div
                         style={{
                           height: 1,
@@ -833,7 +833,7 @@ export default function App() {
           </div>
 
           {/* Countdown to Nov 26, 2026 1:00 PM */}
-          <div className="mt-12 sm:mt-18 lg:mt-26">
+          <div className="mt-26 sm:mt-28 lg:mt-26">
             <Countdown targetDate="2026-11-26T13:00:00" />
           </div>
         </div>
