@@ -81,7 +81,7 @@ const REMINDERS = [
     body: "Kindly arrive at the ceremony venue a little early to avoid missing any part of the ceremony.",
     icon: Clock,
     rotation: "0.5deg",
-    tapeConfig: { right: "24px", top: "-14px", rotate: "3.5deg" },
+    tapeConfig: { right: "24px", top: "-16px", rotate: "3.5deg" },
     // Top-left corner (opposite right tape) — never overlaps text
     sticker: {
       src: "/STICKERS/23.webp",
@@ -101,7 +101,7 @@ const REMINDERS = [
     body: "With the warm weather expected around this time of year, please remember to drink plenty of water and keep cool throughout the day. We want everyone to feel comfortable and enjoy the celebration with us! ♡",
     icon: Droplets,
     rotation: "-0.4deg",
-    tapeConfig: { left: "24px", top: "-14px", rotate: "-2deg" },
+    tapeConfig: { left: "24px", top: "-16px", rotate: "-2deg" },
     // Top-right corner (opposite left tape)
     sticker: {
       src: "/STICKERS/45.webp",
@@ -217,7 +217,7 @@ export default function App() {
           z-index: 20;
           white-space: nowrap;
           transform-origin: center center;
-          padding: 4px 22px;
+          padding: 2px 16px;
           font-family: 'Great Vibes', cursive;
           letter-spacing: 0.04em;
           color: #fffdf8;
@@ -234,6 +234,11 @@ export default function App() {
             0 1px 2px rgba(80,20,25,0.14);
           border-top: 1.5px solid rgba(255,220,220,0.22);
           border-bottom: 1.5px solid rgba(80,20,25,0.28);
+        }
+        @media (min-width: 640px) {
+          .washi-tape-pill {
+            padding: 4px 22px;
+          }
         }
 
         .scrapbook-card {
@@ -561,7 +566,7 @@ export default function App() {
 
                 {/* Main Postcard / Love-Note Card */}
                 <div
-                  className="scrapbook-card relative z-20 px-4 py-4.5 sm:px-7 sm:py-7 md:px-11 md:py-10"
+                  className="scrapbook-card relative z-20 px-4 pt-7 pb-5 sm:px-7 sm:pt-8 sm:pb-7 md:px-11 md:py-10"
                   style={{
                     transform: "rotate(0.5deg)",
                     backgroundImage:
@@ -596,7 +601,7 @@ export default function App() {
                   <div
                     className="washi-tape-pill text-base sm:text-xl md:text-[1.65rem]"
                     style={{
-                      top: "-13px",
+                      top: "-16px",
                       left: "50%",
                       transform: "translateX(-50%) rotate(-1.5deg)",
                     }}
@@ -857,7 +862,7 @@ export default function App() {
       ===================================================================== */}
       <section
         id="ceremony"
-        className="bg-[url('/makati/IMG_8029.webp')] md:bg-[url('/makati/IMG_7454.webp')] bg-cover bg-center bg-no-repeat relative z-10 pt-22 sm:pt-30 md:pt-44 pb-32 sm:pb-42 md:pb-64"
+        className="bg-[url('/makati/IMG_8029.webp')] md:bg-[url('/makati/IMG_7454.webp')] bg-cover bg-center bg-no-repeat relative z-10 pt-26 sm:pt-32 md:pt-44 pb-32 sm:pb-42 md:pb-64"
       >
         <div className="absolute inset-0 bg-black/15 pointer-events-none" />
 
@@ -897,13 +902,13 @@ export default function App() {
 
               {/* Ceremony Details Scrapbook Card */}
               <div
-                className="scrapbook-card w-full max-w-sm sm:max-w-md md:max-w-lg px-4.5 py-5.5 sm:px-8 sm:py-8 md:px-10 md:py-10 text-center"
+                className="scrapbook-card w-full max-w-sm sm:max-w-md md:max-w-lg px-4.5 pt-7 pb-5.5 sm:px-8 sm:pt-9 sm:pb-8 md:px-10 md:py-10 text-center"
                 style={{ transform: "rotate(0.8deg)" }}
               >
                 <div
                   className="washi-tape-pill text-lg sm:text-xl md:text-[1.65rem]"
                   style={{
-                    top: "-13px",
+                    top: "-16px",
                     left: "50%",
                     transform: "translateX(-50%) rotate(-1.5deg)",
                   }}
@@ -1052,13 +1057,13 @@ export default function App() {
 
               {/* Reception Details Scrapbook Card */}
               <div
-                className="scrapbook-card w-full max-w-sm sm:max-w-md md:max-w-lg px-4.5 py-5.5 sm:px-8 sm:py-8 md:px-10 md:py-10 text-center"
+                className="scrapbook-card w-full max-w-sm sm:max-w-md md:max-w-lg px-4.5 pt-7 pb-5.5 sm:px-8 sm:pt-9 sm:pb-8 md:px-10 md:py-10 text-center"
                 style={{ transform: "rotate(-0.8deg)" }}
               >
                 <div
                   className="washi-tape-pill text-lg sm:text-xl md:text-[1.65rem]"
                   style={{
-                    top: "-13px",
+                    top: "-16px",
                     left: "50%",
                     transform: "translateX(-50%) rotate(1.8deg)",
                   }}
@@ -1216,7 +1221,7 @@ export default function App() {
       ===================================================================== */}
       <section
         id="reminders"
-        className="bg-[url('/makati/IMG_7855.webp')] md:bg-[url('/makati/IMG_7350.webp')] bg-cover bg-center bg-no-repeat relative pt-22 sm:pt-30 md:pt-44 pb-30 sm:pb-40 md:pb-60 overflow-x-clip"
+        className="bg-[url('/makati/IMG_7855.webp')] md:bg-[url('/makati/IMG_7350.webp')] bg-cover bg-center bg-no-repeat relative pt-26 sm:pt-32 md:pt-44 pb-30 sm:pb-40 md:pb-60 overflow-x-clip"
       >
         <div className="absolute inset-0 bg-black/22 pointer-events-none" />
 
@@ -1249,7 +1254,7 @@ export default function App() {
                 delay={idx * 50}
               >
                 <div
-                  className="scrapbook-card px-4.5 py-5 sm:px-8 sm:py-8 md:px-10 md:py-9"
+                  className="scrapbook-card px-4.5 pt-7 pb-5 sm:px-8 sm:pt-9 sm:pb-8 md:px-10 md:py-9"
                   style={{
                     transform: `rotate(${item.rotation})`,
                   }}
@@ -1446,14 +1451,14 @@ export default function App() {
       ===================================================================== */}
       <section
         id="gift"
-        className="bg-[url('/makati/IMG_8306.webp')] md:bg-[url('/makati/IMG_8206.webp')] bg-center bg-cover bg-no-repeat relative pt-22 sm:pt-30 md:pt-44 pb-16 sm:pb-24 md:pb-36 overflow-hidden"
+        className="bg-[url('/makati/IMG_8306.webp')] md:bg-[url('/makati/IMG_8206.webp')] bg-center bg-cover bg-no-repeat relative pt-26 sm:pt-32 md:pt-44 pb-16 sm:pb-24 md:pb-36 overflow-hidden"
       >
         <div className="absolute inset-0 bg-black/25 pointer-events-none" />
 
         <div className="relative max-w-2xl lg:max-w-3xl mx-auto px-4 sm:px-6 md:px-8 z-10">
           <Reveal animation="fade-up">
             <div
-              className="scrapbook-card px-4.5 py-6.5 sm:px-10 sm:py-10 md:px-14 md:py-14 text-center"
+              className="scrapbook-card px-4.5 pt-8 pb-6.5 sm:px-10 sm:pt-10 sm:pb-10 md:px-14 md:py-14 text-center"
               style={{
                 transform: "rotate(-0.4deg)",
               }}
@@ -1462,7 +1467,7 @@ export default function App() {
               <div
                 className="washi-tape-pill text-lg sm:text-2xl md:text-[1.65rem]"
                 style={{
-                  top: "-13px",
+                  top: "-16px",
                   left: "50%",
                   transform: "translateX(-50%) rotate(1.5deg)",
                 }}
