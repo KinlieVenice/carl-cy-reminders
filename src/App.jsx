@@ -34,6 +34,7 @@ const MAIN_WEDDING_SITE_DRESS_CODE = "https://carlcywedding.site/#dress-code";
 const REMINDERS = [
   {
     number: "01",
+    hidden: true,
     tapeLabel: "Dress Code",
     title: "Dress code:",
     bodyBeforeLink:
@@ -117,6 +118,7 @@ const REMINDERS = [
   },
   {
     number: "04",
+    hidden: true,
     tapeLabel: "Seating",
     title: "Reserved seats:",
     body: "Please follow the seating arrangements, if applicable, and feel free to ask our coordinators for assistance.",
@@ -137,6 +139,7 @@ const REMINDERS = [
   },
   {
     number: "05",
+    hidden: true,
     tapeLabel: "Celebrate",
     title: "Most importantly:",
     body: "Come ready to celebrate, enjoy good company, and make beautiful memories with us!",
@@ -1294,7 +1297,7 @@ export default function App() {
             </div>
           </Reveal>
 
-          {REMINDERS.map((item, idx) => {
+          {REMINDERS.filter((item) => !item.hidden).map((item, idx) => {
             const Icon = item.icon;
             return (
               <Reveal
