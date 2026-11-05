@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import {
   MapPin,
   ExternalLink,
@@ -27,8 +27,6 @@ const WINDSONG_GMAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=Gorio%27s+Restaurant+Tagaytay";
 const GORIOS_WAZE_URL =
   "https://waze.com/ul?ll=14.1059587,120.9548174&navigate=yes";
-const DIRECTIONS_GMAPS_URL =
-  "https://www.google.com/maps/dir/14.0574537,120.8360742/14.1059587,120.9548174";
 const MAIN_WEDDING_SITE_DRESS_CODE = "https://carlcywedding.site/#dress-code";
 
 const REMINDERS = [
@@ -206,7 +204,6 @@ function TornBannerTitle({
 
 export default function App() {
   const [qrZoom, setQrZoom] = useState(null);
-  const mapDialog = useRef(null);
 
   const openGiftModal = () => {
     setQrZoom({ src: "/images/bpi.webp", label: "BPI InstaPay · Carl & Cy" });
@@ -1192,60 +1189,6 @@ export default function App() {
                 </div>
               </div>
             </div>
-          </Reveal>
-
-          {/* ── CEREMONY → RECEPTION ROUTE MAP (same as main website) ── */}
-          <Reveal animation="fade-up" delay={150} className="w-full max-w-4xl pt-2">
-            <div className="relative shadow-2xl border-4 border-[#fffdf8]">
-              <img
-                src="/images/gmaps.webp"
-                alt="Route map from Chapel on the Hill to Windsong Tagaytay"
-                loading="lazy"
-                onClick={() => mapDialog.current?.showModal()}
-                className="block w-full max-h-72 object-cover cursor-pointer md:max-h-80 lg:max-h-96"
-              />
-              <dialog
-                ref={mapDialog}
-                onClick={(e) => e.currentTarget.close()}
-                className="m-auto max-w-none max-h-none border-0 bg-transparent p-0 backdrop:bg-black/90"
-              >
-                <img
-                  src="/images/gmaps.webp"
-                  alt="Route map from Chapel on the Hill to Windsong Tagaytay"
-                  onClick={(e) => e.stopPropagation()}
-                  className="max-w-[92vw] max-h-[88vh]"
-                />
-              </dialog>
-              <div className="absolute bottom-4 right-4 w-1/2">
-                <a
-                  href={DIRECTIONS_GMAPS_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Open directions from Don Bosco Chapel on the Hill to Gorio's Restaurant in Google Maps"
-                  className="block shadow-lg"
-                >
-                  <iframe
-                    title="Directions from Don Bosco Chapel on the Hill to Gorio's Restaurant"
-                    src="https://maps.google.com/maps?saddr=14.0574537,120.8360742&daddr=14.1059587,120.9548174&output=embed"
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    tabIndex={-1}
-                    className="block w-full h-20 border-0 pointer-events-none md:h-28 lg:h-36"
-                  />
-                </a>
-              </div>
-            </div>
-            <p
-              className="mt-3 block w-fit ml-auto px-3.5 py-1.5 text-right bg-[#fffdf8]/95 shadow text-sm sm:text-base md:text-lg"
-              style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontStyle: "italic",
-                color: "#722F37",
-              }}
-            >
-              Windsong Tagaytay is right beside Gorio&rsquo;s Restaurant. Click the map to
-              enlarge or view live directions.
-            </p>
           </Reveal>
         </div>
 
