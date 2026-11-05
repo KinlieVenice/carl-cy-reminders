@@ -14,7 +14,7 @@ function Box({ value, label }) {
   return (
     <div className="flex flex-col items-center gap-1">
       <div
-        className="min-w-[74px] sm:min-w-[84px] md:min-w-[94px] px-2.5 pt-2.5 pb-2 sm:px-3.5 sm:pt-3 sm:pb-2.5 flex flex-col items-center gap-1 rounded-md"
+        className="min-w-[62px] sm:min-w-[80px] md:min-w-[94px] px-2 pt-1.5 pb-1.5 sm:px-3.5 sm:pt-3 sm:pb-2.5 flex flex-col items-center gap-0.5 sm:gap-1 rounded-md"
         style={{
           border: "2.5px solid rgba(255,255,255,1)",
           background: "none",
@@ -22,7 +22,7 @@ function Box({ value, label }) {
         }}
       >
         <span
-          className="text-3xl sm:text-4xl md:text-[2.6rem] leading-none"
+          className="text-2xl sm:text-4xl md:text-[2.6rem] leading-none"
           style={{
             fontFamily: "'Cormorant Garamond', serif",
             fontWeight: 300,
@@ -41,7 +41,7 @@ function Box({ value, label }) {
           }}
         />
         <span
-          className="text-[0.6rem] sm:text-[0.66rem] md:text-[0.72rem]"
+          className="text-[0.52rem] sm:text-[0.66rem] md:text-[0.72rem]"
           style={{
             fontFamily: "'Jost', sans-serif",
             fontWeight: 400,
@@ -95,7 +95,7 @@ function Countdown({ targetDate }) {
         />
       </div>
       <p
-        className="text-2xl sm:text-[1.7rem] md:text-[1.95rem] text-center m-0"
+        className="text-xl sm:text-[1.7rem] md:text-[1.95rem] text-center m-0"
         style={{
           fontFamily: "'Cormorant Garamond', serif",
           fontWeight: 500,
@@ -108,7 +108,7 @@ function Countdown({ targetDate }) {
         Counting Down To
       </p>
 
-      <div className="flex gap-3 sm:gap-4 md:gap-5 items-center mt-0.5">
+      <div className="flex gap-2.5 sm:gap-4 md:gap-5 items-center mt-0.5">
         <Box value={timeLeft.days} label="Days" />
 
         <span

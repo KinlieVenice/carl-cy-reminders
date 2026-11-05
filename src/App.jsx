@@ -162,7 +162,7 @@ function TornBannerTitle({
   title,
   stickerSrc,
   stickerProps,
-  height = 165,
+  height = 125,
   mdHeight = 210,
   lgHeight = 250,
   className = "",
@@ -182,7 +182,7 @@ function TornBannerTitle({
           loading="lazy"
         />
         <span
-          className="text-[1.6rem] sm:text-[2.1rem] md:text-[2.65rem] lg:text-[3.2rem] leading-tight text-center px-6 sm:whitespace-nowrap w-full sm:w-auto"
+          className="text-[1.35rem] sm:text-[1.9rem] md:text-[2.65rem] lg:text-[3.2rem] leading-tight text-center px-6 sm:whitespace-nowrap w-full sm:w-auto"
           style={{
             position: "absolute",
             top: "50%",
@@ -324,7 +324,7 @@ export default function App() {
       ===================================================================== */}
       <section
         id="home"
-        className="relative bg-[url('/makati/IMG_8296.webp')] bg-cover bg-no-repeat bg-position-[50%_55%] lg:bg-position-[50%_58%] pt-5 sm:pt-8 md:pt-10 pb-24 sm:pb-28 md:pb-36 lg:pb-42 overflow-x-clip"
+        className="relative bg-[url('/makati/IMG_8296.webp')] bg-cover bg-no-repeat bg-position-[50%_55%] lg:bg-position-[50%_58%] pt-3 sm:pt-6 md:pt-10 pb-18 sm:pb-24 md:pb-36 lg:pb-42 overflow-x-clip"
       >
         {/* Subtle top gradient so the collage & countdown pop while keeping the couple bright below */}
         <div
@@ -337,13 +337,13 @@ export default function App() {
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 flex flex-col items-center">
           {/* ── MOBILE & TABLET (< lg): FANNED PIZZA POLAROID DUO AT TOP (CLIPPED TO POSTCARD BELOW) ── */}
-          <div className="lg:hidden relative w-full max-w-[360px] sm:max-w-[400px] mx-auto flex items-center justify-center pt-1">
+          <div className="lg:hidden relative w-full max-w-[295px] sm:max-w-[360px] mx-auto flex items-center justify-center pt-1">
             {/* Pressed lavender sprig peeking behind left polaroid */}
             <img
               src="/STICKERS/lavender.webp"
               alt=""
               aria-hidden="true"
-              className="w-20 sm:w-24 object-contain pointer-events-none select-none absolute -top-4 left-1 -rotate-18 z-10 opacity-90 drop-shadow"
+              className="w-16 sm:w-22 object-contain pointer-events-none select-none absolute -top-3 left-1 -rotate-18 z-10 opacity-90 drop-shadow"
             />
 
             {/* Left Polaroid: Cafe Veil Portrait (IMG_7555) */}
@@ -356,20 +356,20 @@ export default function App() {
               }
               role="button"
               tabIndex={0}
-              className="relative bg-[#fffdf8] p-1.5 pb-4 sm:p-2 sm:pb-5 shadow-2xl cursor-zoom-in w-[49%] z-20"
+              className="relative bg-[#fffdf8] p-1 pb-3 sm:p-2 sm:pb-4 shadow-2xl cursor-zoom-in w-[48%] z-20"
               style={{
-                transform: "rotate(-5.5deg) translateX(6px)",
+                transform: "rotate(-5.5deg) translateX(5px)",
                 border: "1px solid rgba(114,47,55,0.16)",
               }}
             >
               <div
                 style={{
                   position: "absolute",
-                  top: "-7px",
+                  top: "-6px",
                   left: "50%",
                   transform: "translateX(-50%) rotate(-2deg)",
-                  width: "54px",
-                  height: "14px",
+                  width: "46px",
+                  height: "12px",
                   background: "rgba(140, 60, 68, 0.82)",
                   boxShadow: "0 2px 5px rgba(0,0,0,0.18)",
                 }}
@@ -377,12 +377,12 @@ export default function App() {
               <img
                 src="/makati/IMG_7555.webp"
                 alt="Carl and Cy at cafe"
-                className="w-full h-33 sm:h-38 object-cover"
+                className="w-full h-25 sm:h-32 object-cover"
                 fetchPriority="high"
                 loading="eager"
               />
               <p
-                className="text-center text-[0.95rem] sm:text-base mt-1 whitespace-nowrap"
+                className="text-center text-[0.82rem] sm:text-[0.95rem] mt-1 whitespace-nowrap"
                 style={{
                   fontFamily: "'Great Vibes', cursive",
                   color: "#722F37",
@@ -403,20 +403,20 @@ export default function App() {
               }
               role="button"
               tabIndex={0}
-              className="relative bg-[#fffdf8] p-1.5 pb-4 sm:p-2 sm:pb-5 shadow-2xl cursor-zoom-in w-[49%] z-25"
+              className="relative bg-[#fffdf8] p-1 pb-3 sm:p-2 sm:pb-4 shadow-2xl cursor-zoom-in w-[48%] z-25"
               style={{
-                transform: "rotate(4.5deg) translateX(-6px) translateY(4px)",
+                transform: "rotate(4.5deg) translateX(-5px) translateY(3px)",
                 border: "1px solid rgba(114,47,55,0.16)",
               }}
             >
               <div
                 style={{
                   position: "absolute",
-                  top: "-7px",
+                  top: "-6px",
                   left: "50%",
                   transform: "translateX(-50%) rotate(2deg)",
-                  width: "54px",
-                  height: "14px",
+                  width: "46px",
+                  height: "12px",
                   background: "rgba(107, 112, 65, 0.85)",
                   boxShadow: "0 2px 5px rgba(0,0,0,0.18)",
                 }}
@@ -424,12 +424,12 @@ export default function App() {
               <img
                 src="/makati/IMG_8421.webp"
                 alt="Cy feeding Carl pizza"
-                className="w-full h-33 sm:h-38 object-cover"
+                className="w-full h-25 sm:h-32 object-cover"
                 fetchPriority="high"
                 loading="eager"
               />
               <p
-                className="text-center text-[0.95rem] sm:text-base mt-1 whitespace-nowrap"
+                className="text-center text-[0.82rem] sm:text-[0.95rem] mt-1 whitespace-nowrap"
                 style={{
                   fontFamily: "'Great Vibes', cursive",
                   color: "#722F37",
@@ -442,7 +442,7 @@ export default function App() {
           </div>
 
           {/* 3-Column Desktop / Layered Mobile Scrapbook Spread */}
-          <div className="w-full grid grid-cols-1 lg:grid-cols-12 items-center gap-6 lg:gap-4 mt-8 sm:mt-10 lg:mt-0">
+          <div className="w-full grid grid-cols-1 lg:grid-cols-12 items-center gap-5 lg:gap-4 mt-6 sm:mt-8 lg:mt-0">
             {/* ── LEFT WING (Desktop): Cafe Veil + Feeding Pizza Polaroids ── */}
             <div className="hidden lg:flex lg:col-span-3 flex-col items-center relative">
               {/* Pressed lavender sprig behind polaroid */}
@@ -538,7 +538,7 @@ export default function App() {
 
             {/* ── CENTERPIECE: "OUR WEDDING DAY" VINTAGE POSTCARD & LOVE LETTER ── */}
             <div className="lg:col-span-6 flex justify-center relative z-30">
-              <div className="relative w-full max-w-[385px] sm:max-w-[440px] md:max-w-[500px]">
+              <div className="relative w-full max-w-[335px] sm:max-w-[420px] md:max-w-[500px]">
                 {/* C&C Monogrammed Parchment Envelope peeking from top-left behind postcard (desktop/tablet) */}
                 <img
                   src="/STICKERS/envelope.webp"
@@ -550,10 +550,10 @@ export default function App() {
                 {/* Pressed floral sticker peeking top-right */}
                 <Sticker
                   src="/STICKERS/36.webp"
-                  width={76}
+                  width={62}
                   mdWidth={120}
-                  top="-28px"
-                  right="-10px"
+                  top="-22px"
+                  right="-8px"
                   mdRight="-18px"
                   rotate={14}
                   zIndex={10}
@@ -561,7 +561,7 @@ export default function App() {
 
                 {/* Main Postcard / Love-Note Card */}
                 <div
-                  className="scrapbook-card relative z-20 px-5 py-6 sm:px-8 sm:py-8 md:px-11 md:py-10"
+                  className="scrapbook-card relative z-20 px-4 py-4.5 sm:px-7 sm:py-7 md:px-11 md:py-10"
                   style={{
                     transform: "rotate(0.5deg)",
                     backgroundImage:
@@ -573,7 +573,7 @@ export default function App() {
                   {/* Realistic Metallic Silver Paperclip SVG on Top-Left Edge (clips Postcard to Polaroids on mobile!) */}
                   <svg
                     viewBox="0 0 36 90"
-                    className="w-5.5 sm:w-7 md:w-8 h-auto absolute -top-5 sm:-top-6 left-6 sm:left-9 z-40 pointer-events-none drop-shadow-md"
+                    className="w-5 sm:w-6.5 md:w-8 h-auto absolute -top-4 sm:-top-6 left-5 sm:left-9 z-40 pointer-events-none drop-shadow-md"
                     fill="none"
                   >
                     <path
@@ -594,9 +594,9 @@ export default function App() {
 
                   {/* Washi tape top center */}
                   <div
-                    className="washi-tape-pill text-lg sm:text-2xl md:text-[1.65rem]"
+                    className="washi-tape-pill text-base sm:text-xl md:text-[1.65rem]"
                     style={{
-                      top: "-14px",
+                      top: "-13px",
                       left: "50%",
                       transform: "translateX(-50%) rotate(-1.5deg)",
                     }}
@@ -624,10 +624,10 @@ export default function App() {
 
                   {/* Vintage Postmark Cancellation Stamp in Top-Right Corner */}
                   <div
-                    className="absolute top-3.5 right-3.5 sm:top-5 sm:right-6 pointer-events-none select-none opacity-30 sm:opacity-35"
+                    className="absolute top-3 right-3 sm:top-5 sm:right-6 pointer-events-none select-none opacity-25 sm:opacity-35"
                     style={{ transform: "rotate(12deg)" }}
                   >
-                    <svg className="w-15 sm:w-19 h-auto" viewBox="0 0 110 64" fill="none">
+                    <svg className="w-12 sm:w-18 h-auto" viewBox="0 0 110 64" fill="none">
                       <circle cx="32" cy="32" r="26" stroke="#722F37" strokeWidth="1.8" strokeDasharray="3 2" />
                       <circle cx="32" cy="32" r="21" stroke="#722F37" strokeWidth="1" />
                       <text
@@ -662,9 +662,9 @@ export default function App() {
                     </svg>
                   </div>
 
-                  <div className="text-center relative z-10 pt-1.5">
+                  <div className="text-center relative z-10 pt-1">
                     <p
-                      className="text-[0.58rem] sm:text-xs md:text-[0.76rem] mb-1"
+                      className="text-[0.54rem] sm:text-xs md:text-[0.76rem] mb-0.5 sm:mb-1"
                       style={{
                         fontFamily: "'Jost', sans-serif",
                         fontWeight: 400,
@@ -677,7 +677,7 @@ export default function App() {
                     </p>
 
                     <h1
-                      className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.45rem]"
+                      className="text-xl sm:text-3xl md:text-4xl lg:text-[2.45rem]"
                       style={{
                         fontFamily: "'Cormorant Garamond', serif",
                         fontStyle: "italic",
@@ -692,28 +692,28 @@ export default function App() {
                     </h1>
 
                     {/* Ornamental divider */}
-                    <div className="flex items-center justify-center gap-2.5 my-2.5">
+                    <div className="flex items-center justify-center gap-2 my-1.5 sm:my-2.5">
                       <div
                         style={{
                           height: 1,
-                          width: 44,
+                          width: 36,
                           background: "linear-gradient(90deg, transparent, rgba(114,47,55,0.4))",
                         }}
                       />
-                      <span className="text-xs md:text-sm" style={{ color: "#6B7041" }}>
+                      <span className="text-[0.65rem] md:text-sm" style={{ color: "#6B7041" }}>
                         ✦
                       </span>
                       <div
                         style={{
                           height: 1,
-                          width: 44,
+                          width: 36,
                           background: "linear-gradient(90deg, rgba(114,47,55,0.4), transparent)",
                         }}
                       />
                     </div>
 
                     <p
-                      className="text-[0.98rem] sm:text-lg md:text-xl lg:text-[1.24rem] leading-relaxed px-1"
+                      className="text-[0.88rem] sm:text-base md:text-xl lg:text-[1.24rem] leading-snug sm:leading-relaxed px-1"
                       style={{
                         fontFamily: "'Cormorant Garamond', serif",
                         fontWeight: 400,
@@ -731,10 +731,10 @@ export default function App() {
                 {/* C&C Burgundy Wax Seal stamped on bottom-left corner of postcard */}
                 <Sticker
                   src="/STICKERS/MONOG.webp"
-                  width={64}
+                  width={52}
                   mdWidth={92}
-                  bottom="-22px"
-                  left="-10px"
+                  bottom="-18px"
+                  left="-8px"
                   rotate={-8}
                   zIndex={35}
                 />
@@ -828,7 +828,7 @@ export default function App() {
           </div>
 
           {/* Countdown to Nov 26, 2026 1:00 PM */}
-          <div className="mt-20 sm:mt-24 lg:mt-26">
+          <div className="mt-12 sm:mt-18 lg:mt-26">
             <Countdown targetDate="2026-11-26T13:00:00" />
           </div>
         </div>
@@ -836,16 +836,16 @@ export default function App() {
         {/* Overlapping torn paper transition — anchored to the bottom of <section id="home"> */}
         <TornBannerTitle
           title="Ceremony & Reception"
-          className="absolute -bottom-22 sm:-bottom-26 md:-bottom-30 left-0 right-0 z-20 object-cover"
-          height={160}
+          className="absolute -bottom-16 sm:-bottom-20 md:-bottom-30 left-0 right-0 z-20 object-cover"
+          height={125}
           mdHeight={205}
           lgHeight={240}
           stickerSrc="/STICKERS/19.webp"
           stickerProps={{
-            width: 170,
+            width: 135,
             mdWidth: 220,
-            bottom: "-36px",
-            right: "-45px",
+            bottom: "-28px",
+            right: "-35px",
             rotate: -20,
             zIndex: 30,
           }}
@@ -857,14 +857,14 @@ export default function App() {
       ===================================================================== */}
       <section
         id="ceremony"
-        className="bg-[url('/makati/IMG_8029.webp')] md:bg-[url('/makati/IMG_7454.webp')] bg-cover bg-center bg-no-repeat relative z-10 pt-32 sm:pt-36 md:pt-44 pb-52 sm:pb-56 md:pb-64"
+        className="bg-[url('/makati/IMG_8029.webp')] md:bg-[url('/makati/IMG_7454.webp')] bg-cover bg-center bg-no-repeat relative z-10 pt-22 sm:pt-30 md:pt-44 pb-32 sm:pb-42 md:pb-64"
       >
         <div className="absolute inset-0 bg-black/15 pointer-events-none" />
 
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col items-center gap-16 md:gap-20">
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col items-center gap-10 sm:gap-14 md:gap-20">
           {/* ── THE CEREMONY ── */}
           <Reveal animation="fade-up" className="w-full">
-            <div className="flex flex-col lg:flex-row items-center justify-center gap-7 lg:gap-12">
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-4 sm:gap-6 lg:gap-12">
               {/* Same photo card as website */}
               <div className="relative">
                 <a
@@ -879,16 +879,16 @@ export default function App() {
                       src="/images/chapel-h.webp"
                       alt="Chapel on the Hill — Wedding Location"
                       loading="lazy"
-                      className="w-78 sm:w-94 md:w-106 lg:w-115 drop-shadow-2xl"
+                      className="w-60 sm:w-80 md:w-106 lg:w-115 drop-shadow-2xl"
                     />
                   </ImageContainer>
                 </a>
                 <Sticker
                   src="/STICKERS/32.webp"
-                  width={115}
+                  width={90}
                   mdWidth={165}
-                  top="-32px"
-                  left="-30px"
+                  top="-24px"
+                  left="-22px"
                   mdLeft="-55px"
                   rotate={-14}
                   zIndex={25}
@@ -897,13 +897,13 @@ export default function App() {
 
               {/* Ceremony Details Scrapbook Card */}
               <div
-                className="scrapbook-card w-full max-w-md md:max-w-lg px-6 py-8 sm:px-9 sm:py-9 md:px-10 md:py-10 text-center"
+                className="scrapbook-card w-full max-w-sm sm:max-w-md md:max-w-lg px-4.5 py-5.5 sm:px-8 sm:py-8 md:px-10 md:py-10 text-center"
                 style={{ transform: "rotate(0.8deg)" }}
               >
                 <div
-                  className="washi-tape-pill text-xl sm:text-2xl md:text-[1.65rem]"
+                  className="washi-tape-pill text-lg sm:text-xl md:text-[1.65rem]"
                   style={{
-                    top: "-15px",
+                    top: "-13px",
                     left: "50%",
                     transform: "translateX(-50%) rotate(-1.5deg)",
                   }}
@@ -920,7 +920,7 @@ export default function App() {
                 />
 
                 <p
-                  className="text-xs sm:text-sm md:text-[0.92rem] mb-1.5"
+                  className="text-[0.65rem] sm:text-xs md:text-[0.92rem] mb-1"
                   style={{
                     fontFamily: "'Jost', sans-serif",
                     fontWeight: 400,
@@ -933,7 +933,7 @@ export default function App() {
                 </p>
 
                 <p
-                  className="text-xl sm:text-2xl md:text-3xl mb-3"
+                  className="text-lg sm:text-2xl md:text-3xl mb-2"
                   style={{
                     fontFamily: "'Cormorant Garamond', serif",
                     fontStyle: "italic",
@@ -945,42 +945,42 @@ export default function App() {
                   November 26, 2026 &nbsp;|&nbsp; 1 PM
                 </p>
 
-                <div className="flex items-center justify-center gap-2 my-3">
+                <div className="flex items-center justify-center gap-2 my-2 sm:my-3">
                   <div
                     style={{
                       height: 1,
-                      width: 42,
+                      width: 36,
                       background: "linear-gradient(90deg, transparent, rgba(114,47,55,0.3))",
                     }}
                   />
-                  <span className="text-xs md:text-sm" style={{ color: "#722F37", opacity: 0.6 }}>
+                  <span className="text-[0.65rem] md:text-sm" style={{ color: "#722F37", opacity: 0.6 }}>
                     ✦
                   </span>
                   <div
                     style={{
                       height: 1,
-                      width: 42,
+                      width: 36,
                       background: "linear-gradient(90deg, rgba(114,47,55,0.3), transparent)",
                     }}
                   />
                 </div>
 
                 {/* Hyperlink to Google Maps */}
-                <div className="my-2">
+                <div className="my-1.5">
                   <a
                     href={CHAPEL_GMAPS_URL}
                     target="_blank"
                     rel="noreferrer"
-                    className="venue-link text-xl sm:text-2xl md:text-3xl lg:text-[2rem]"
+                    className="venue-link text-lg sm:text-2xl md:text-3xl lg:text-[2rem]"
                   >
-                    <MapPin className="w-5 h-5 md:w-6 md:h-6 shrink-0" style={{ color: "#722F37" }} />
+                    <MapPin className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 shrink-0" style={{ color: "#722F37" }} />
                     <span>Chapel on the Hill</span>
-                    <ExternalLink className="w-4 h-4 md:w-5 md:h-5 shrink-0 opacity-65" />
+                    <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 shrink-0 opacity-65" />
                   </a>
                 </div>
 
                 <p
-                  className="text-base sm:text-lg md:text-xl mt-1"
+                  className="text-sm sm:text-lg md:text-xl mt-0.5"
                   style={{
                     fontFamily: "'Cormorant Garamond', serif",
                     fontStyle: "italic",
@@ -990,23 +990,23 @@ export default function App() {
                   Don Bosco Batulao, Nasugbu, Batangas
                 </p>
 
-                <div className="mt-5 flex flex-wrap items-center justify-center gap-2.5">
+                <div className="mt-3.5 sm:mt-5 flex flex-wrap items-center justify-center gap-2">
                   <a
                     href={CHAPEL_GMAPS_URL}
                     target="_blank"
                     rel="noreferrer"
-                    className="gmaps-pill text-[0.64rem] sm:text-xs md:text-[0.76rem] px-4 py-2.5 sm:px-5"
+                    className="gmaps-pill text-[0.58rem] sm:text-xs md:text-[0.76rem] px-3.5 py-2 sm:px-5 sm:py-2.5"
                   >
-                    <MapPin size={14} />
+                    <MapPin size={13} />
                     Google Maps
                   </a>
                   <a
                     href={CHAPEL_WAZE_URL}
                     target="_blank"
                     rel="noreferrer"
-                    className="waze-pill text-[0.64rem] sm:text-xs md:text-[0.76rem] px-4 py-2.5 sm:px-5"
+                    className="waze-pill text-[0.58rem] sm:text-xs md:text-[0.76rem] px-3.5 py-2 sm:px-5 sm:py-2.5"
                   >
-                    <Navigation size={13} />
+                    <Navigation size={12} />
                     Open in Waze
                   </a>
                 </div>
@@ -1018,7 +1018,7 @@ export default function App() {
           <Reveal animation="fade-up" delay={100} className="w-full">
             <div
               id="reception"
-              className="flex flex-col lg:flex-row-reverse items-center justify-center gap-7 lg:gap-12 pt-2"
+              className="flex flex-col lg:flex-row-reverse items-center justify-center gap-4 sm:gap-6 lg:gap-12 pt-1"
             >
               {/* Same photo card as website */}
               <div className="relative">
@@ -1034,16 +1034,16 @@ export default function App() {
                       src="/images/windsong-t.webp"
                       alt="Windsong Tagaytay — Reception Location"
                       loading="lazy"
-                      className="w-78 sm:w-94 md:w-106 lg:w-115 drop-shadow-2xl"
+                      className="w-60 sm:w-80 md:w-106 lg:w-115 drop-shadow-2xl"
                     />
                   </ImageContainer>
                 </a>
                 <Sticker
                   src="/STICKERS/15.webp"
-                  width={115}
+                  width={90}
                   mdWidth={160}
-                  bottom="-34px"
-                  right="-26px"
+                  bottom="-26px"
+                  right="-20px"
                   mdRight="-45px"
                   rotate={12}
                   zIndex={25}
@@ -1052,13 +1052,13 @@ export default function App() {
 
               {/* Reception Details Scrapbook Card */}
               <div
-                className="scrapbook-card w-full max-w-md md:max-w-lg px-6 py-8 sm:px-9 sm:py-9 md:px-10 md:py-10 text-center"
+                className="scrapbook-card w-full max-w-sm sm:max-w-md md:max-w-lg px-4.5 py-5.5 sm:px-8 sm:py-8 md:px-10 md:py-10 text-center"
                 style={{ transform: "rotate(-0.8deg)" }}
               >
                 <div
-                  className="washi-tape-pill text-xl sm:text-2xl md:text-[1.65rem]"
+                  className="washi-tape-pill text-lg sm:text-xl md:text-[1.65rem]"
                   style={{
-                    top: "-15px",
+                    top: "-13px",
                     left: "50%",
                     transform: "translateX(-50%) rotate(1.8deg)",
                   }}
@@ -1075,7 +1075,7 @@ export default function App() {
                 />
 
                 <p
-                  className="text-xs sm:text-sm md:text-[0.92rem] mb-1.5"
+                  className="text-[0.65rem] sm:text-xs md:text-[0.92rem] mb-1"
                   style={{
                     fontFamily: "'Jost', sans-serif",
                     fontWeight: 400,
@@ -1088,7 +1088,7 @@ export default function App() {
                 </p>
 
                 <p
-                  className="text-xl sm:text-2xl md:text-3xl mb-2"
+                  className="text-lg sm:text-2xl md:text-3xl mb-1.5"
                   style={{
                     fontFamily: "'Cormorant Garamond', serif",
                     fontStyle: "italic",
@@ -1099,64 +1099,64 @@ export default function App() {
                   Let&rsquo;s continue the celebration!
                 </p>
 
-                <div className="flex items-center justify-center gap-2 my-3">
+                <div className="flex items-center justify-center gap-2 my-2 sm:my-3">
                   <div
                     style={{
                       height: 1,
-                      width: 42,
+                      width: 36,
                       background: "linear-gradient(90deg, transparent, rgba(114,47,55,0.3))",
                     }}
                   />
-                  <span className="text-xs md:text-sm" style={{ color: "#722F37", opacity: 0.6 }}>
+                  <span className="text-[0.65rem] md:text-sm" style={{ color: "#722F37", opacity: 0.6 }}>
                     ✦
                   </span>
                   <div
                     style={{
                       height: 1,
-                      width: 42,
+                      width: 36,
                       background: "linear-gradient(90deg, rgba(114,47,55,0.3), transparent)",
                     }}
                   />
                 </div>
 
                 {/* Hyperlink to Google Maps */}
-                <div className="my-2">
+                <div className="my-1.5">
                   <a
                     href={WINDSONG_GMAPS_URL}
                     target="_blank"
                     rel="noreferrer"
-                    className="venue-link text-xl sm:text-2xl md:text-3xl lg:text-[2rem]"
+                    className="venue-link text-lg sm:text-2xl md:text-3xl lg:text-[2rem]"
                   >
-                    <MapPin className="w-5 h-5 md:w-6 md:h-6 shrink-0" style={{ color: "#722F37" }} />
+                    <MapPin className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 shrink-0" style={{ color: "#722F37" }} />
                     <span>Windsong Tagaytay</span>
-                    <ExternalLink className="w-4 h-4 md:w-5 md:h-5 shrink-0 opacity-65" />
+                    <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 shrink-0 opacity-65" />
                   </a>
                 </div>
 
-                <div className="mt-4 flex flex-wrap items-center justify-center gap-2.5">
+                <div className="mt-3.5 sm:mt-4 flex flex-wrap items-center justify-center gap-2">
                   <a
                     href={WINDSONG_GMAPS_URL}
                     target="_blank"
                     rel="noreferrer"
-                    className="gmaps-pill text-[0.64rem] sm:text-xs md:text-[0.76rem] px-4 py-2.5 sm:px-5"
+                    className="gmaps-pill text-[0.58rem] sm:text-xs md:text-[0.76rem] px-3.5 py-2 sm:px-5 sm:py-2.5"
                   >
-                    <MapPin size={14} />
+                    <MapPin size={13} />
                     Google Maps
                   </a>
                   <a
                     href={GORIOS_WAZE_URL}
                     target="_blank"
                     rel="noreferrer"
-                    className="waze-pill text-[0.64rem] sm:text-xs md:text-[0.76rem] px-4 py-2.5 sm:px-5"
+                    className="waze-pill text-[0.58rem] sm:text-xs md:text-[0.76rem] px-3.5 py-2 sm:px-5 sm:py-2.5"
                   >
-                    <Navigation size={13} />
+                    <Navigation size={12} />
                     Waze (Pin Gorio&rsquo;s)
                   </a>
                 </div>
 
                 {/* Waze Important Note Box */}
                 <div
-                  className="mt-6 px-4 py-3.5 md:px-5 md:py-4 text-left"
+                  className="mt-4 sm:mt-6 px-3.5 py-2.5 md:px-5 md:py-4 text-left"
                   style={{
                     background: "rgba(246, 237, 217, 0.7)",
                     borderLeft: "3px solid #722F37",
@@ -1164,7 +1164,7 @@ export default function App() {
                   }}
                 >
                   <p
-                    className="text-base sm:text-lg md:text-xl leading-relaxed"
+                    className="text-sm sm:text-lg md:text-xl leading-snug sm:leading-relaxed"
                     style={{
                       fontFamily: "'Cormorant Garamond', serif",
                       fontStyle: "italic",
@@ -1172,7 +1172,7 @@ export default function App() {
                     }}
                   >
                     <strong
-                      className="text-xs sm:text-sm md:text-[0.82rem]"
+                      className="text-[0.65rem] sm:text-sm md:text-[0.82rem]"
                       style={{
                         fontFamily: "'Jost', sans-serif",
                         fontStyle: "normal",
@@ -1195,16 +1195,16 @@ export default function App() {
         {/* Overlapping torn paper transition into Gentle Reminders */}
         <TornBannerTitle
           title="A Few Gentle Reminders"
-          className="absolute -bottom-22 sm:-bottom-26 md:-bottom-30 left-0 right-0 z-20 object-cover"
-          height={165}
+          className="absolute -bottom-16 sm:-bottom-20 md:-bottom-30 left-0 right-0 z-20 object-cover"
+          height={125}
           mdHeight={210}
           lgHeight={250}
           stickerSrc="/STICKERS/26.webp"
           stickerProps={{
-            width: 145,
+            width: 115,
             mdWidth: 205,
-            top: "-88px",
-            left: "-28px",
+            top: "-68px",
+            left: "-22px",
             rotate: -10,
             zIndex: -1,
           }}
@@ -1216,16 +1216,16 @@ export default function App() {
       ===================================================================== */}
       <section
         id="reminders"
-        className="bg-[url('/makati/IMG_7855.webp')] md:bg-[url('/makati/IMG_7350.webp')] bg-cover bg-center bg-no-repeat relative pt-32 sm:pt-36 md:pt-44 pb-48 sm:pb-52 md:pb-60 overflow-x-clip"
+        className="bg-[url('/makati/IMG_7855.webp')] md:bg-[url('/makati/IMG_7350.webp')] bg-cover bg-center bg-no-repeat relative pt-22 sm:pt-30 md:pt-44 pb-30 sm:pb-40 md:pb-60 overflow-x-clip"
       >
         <div className="absolute inset-0 bg-black/22 pointer-events-none" />
 
-        <div className="relative max-w-3xl lg:max-w-4xl mx-auto px-5 sm:px-6 md:px-8 flex flex-col gap-12 sm:gap-14 md:gap-16">
+        <div className="relative max-w-3xl lg:max-w-4xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col gap-8 sm:gap-12 md:gap-16">
           {/* Section Subtitle Card */}
           <Reveal animation="fade-up">
-            <div className="text-center mb-1">
+            <div className="text-center mb-0.5">
               <p
-                className="text-xs sm:text-sm md:text-base"
+                className="text-[0.65rem] sm:text-sm md:text-base"
                 style={{
                   fontFamily: "'Jost', sans-serif",
                   fontWeight: 400,
@@ -1249,14 +1249,14 @@ export default function App() {
                 delay={idx * 50}
               >
                 <div
-                  className="scrapbook-card px-6 py-7 sm:px-8 sm:py-8 md:px-10 md:py-9"
+                  className="scrapbook-card px-4.5 py-5 sm:px-8 sm:py-8 md:px-10 md:py-9"
                   style={{
                     transform: `rotate(${item.rotation})`,
                   }}
                 >
                   {/* Washi tape label */}
                   <div
-                    className="washi-tape-pill text-xl sm:text-2xl md:text-[1.65rem]"
+                    className="washi-tape-pill text-lg sm:text-2xl md:text-[1.65rem]"
                     style={{
                       top: item.tapeConfig.top,
                       left: item.tapeConfig.left,
@@ -1280,7 +1280,7 @@ export default function App() {
                   {/* Corner flower sticker — placed on top corner opposite tape so it never overlaps text */}
                   {item.sticker && <Sticker {...item.sticker} zIndex={25} />}
 
-                  <div className="relative z-10 flex items-start gap-4 md:gap-5 pt-2">
+                  <div className="relative z-10 flex items-start gap-3.5 md:gap-5 pt-1.5">
                     <div
                       className="hidden sm:flex items-center justify-center shrink-0 mt-1 w-11 h-11 md:w-12 md:h-12"
                       style={{
@@ -1294,9 +1294,9 @@ export default function App() {
                     </div>
 
                     <div className="flex-1">
-                      <div className="flex items-baseline gap-2.5 flex-wrap pr-12 sm:pr-14">
+                      <div className="flex items-baseline gap-2 flex-wrap pr-10 sm:pr-14">
                         <span
-                          className="text-sm md:text-base"
+                          className="text-xs md:text-base"
                           style={{
                             fontFamily: "'Cormorant Garamond', serif",
                             color: "#6B7041",
@@ -1306,7 +1306,7 @@ export default function App() {
                           ✦
                         </span>
                         <h3
-                          className="text-xl sm:text-2xl md:text-3xl lg:text-[2rem]"
+                          className="text-lg sm:text-2xl md:text-3xl lg:text-[2rem]"
                           style={{
                             fontFamily: "'Cormorant Garamond', serif",
                             fontStyle: "italic",
@@ -1322,14 +1322,14 @@ export default function App() {
                       <div
                         style={{
                           height: "1px",
-                          margin: "0.65rem 0 0.85rem",
+                          margin: "0.45rem 0 0.65rem",
                           background:
                             "linear-gradient(to right, rgba(114,47,55,0.22), rgba(107,112,65,0.15), transparent)",
                         }}
                       />
 
                       <p
-                        className="text-base sm:text-lg md:text-xl lg:text-[1.32rem] leading-relaxed"
+                        className="text-sm sm:text-lg md:text-xl lg:text-[1.32rem] leading-snug sm:leading-relaxed"
                         style={{
                           fontFamily: "'Cormorant Garamond', serif",
                           fontWeight: 400,
@@ -1434,8 +1434,8 @@ export default function App() {
         {/* Overlapping torn paper transition into Greatest Gift */}
         <TornBannerTitle
           title="Your Presence is Our Greatest Gift"
-          className="absolute -bottom-22 sm:-bottom-26 md:-bottom-30 left-0 right-0 z-20 object-cover"
-          height={165}
+          className="absolute -bottom-16 sm:-bottom-20 md:-bottom-30 left-0 right-0 z-20 object-cover"
+          height={125}
           mdHeight={210}
           lgHeight={250}
         />
@@ -1446,23 +1446,23 @@ export default function App() {
       ===================================================================== */}
       <section
         id="gift"
-        className="bg-[url('/makati/IMG_8306.webp')] md:bg-[url('/makati/IMG_8206.webp')] bg-center bg-cover bg-no-repeat relative pt-32 sm:pt-36 md:pt-44 pb-24 sm:pb-28 md:pb-36 overflow-hidden"
+        className="bg-[url('/makati/IMG_8306.webp')] md:bg-[url('/makati/IMG_8206.webp')] bg-center bg-cover bg-no-repeat relative pt-22 sm:pt-30 md:pt-44 pb-16 sm:pb-24 md:pb-36 overflow-hidden"
       >
         <div className="absolute inset-0 bg-black/25 pointer-events-none" />
 
-        <div className="relative max-w-2xl lg:max-w-3xl mx-auto px-5 sm:px-6 md:px-8 z-10">
+        <div className="relative max-w-2xl lg:max-w-3xl mx-auto px-4 sm:px-6 md:px-8 z-10">
           <Reveal animation="fade-up">
             <div
-              className="scrapbook-card px-6 py-10 sm:px-10 sm:py-11 md:px-14 md:py-14 text-center"
+              className="scrapbook-card px-4.5 py-6.5 sm:px-10 sm:py-10 md:px-14 md:py-14 text-center"
               style={{
                 transform: "rotate(-0.4deg)",
               }}
             >
               {/* Washi tape top */}
               <div
-                className="washi-tape-pill text-xl sm:text-2xl md:text-[1.65rem]"
+                className="washi-tape-pill text-lg sm:text-2xl md:text-[1.65rem]"
                 style={{
-                  top: "-15px",
+                  top: "-13px",
                   left: "50%",
                   transform: "translateX(-50%) rotate(1.5deg)",
                 }}
@@ -1481,16 +1481,16 @@ export default function App() {
               />
 
               {/* Wax Seal at top */}
-              <div className="flex justify-center mb-3">
+              <div className="flex justify-center mb-2 sm:mb-3">
                 <img
                   src="/STICKERS/MONOG.webp"
                   alt="Carl & Cy Wax Seal"
-                  className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow"
+                  className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain drop-shadow"
                 />
               </div>
 
               <p
-                className="text-xs sm:text-sm md:text-[0.88rem] mb-1.5"
+                className="text-[0.62rem] sm:text-xs md:text-[0.88rem] mb-1"
                 style={{
                   fontFamily: "'Jost', sans-serif",
                   fontWeight: 400,
@@ -1503,7 +1503,7 @@ export default function App() {
               </p>
 
               <h2
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.45rem]"
+                className="text-xl sm:text-3xl md:text-4xl lg:text-[2.45rem]"
                 style={{
                   fontFamily: "'Cormorant Garamond', serif",
                   fontStyle: "italic",
@@ -1517,28 +1517,28 @@ export default function App() {
                 Your Presence is Our Greatest Gift
               </h2>
 
-              <div className="flex items-center justify-center gap-2.5 my-4">
+              <div className="flex items-center justify-center gap-2 my-2.5 sm:my-4">
                 <div
                   style={{
                     height: 1,
-                    width: 52,
+                    width: 40,
                     background: "linear-gradient(90deg, transparent, rgba(114,47,55,0.35))",
                   }}
                 />
-                <span className="text-xs md:text-sm" style={{ color: "#6B7041" }}>
+                <span className="text-[0.65rem] md:text-sm" style={{ color: "#6B7041" }}>
                   ✦
                 </span>
                 <div
                   style={{
                     height: 1,
-                    width: 52,
+                    width: 40,
                     background: "linear-gradient(90deg, rgba(114,47,55,0.35), transparent)",
                   }}
                 />
               </div>
 
               <p
-                className="text-base sm:text-lg md:text-xl lg:text-[1.32rem] leading-relaxed mb-4"
+                className="text-sm sm:text-lg md:text-xl lg:text-[1.32rem] leading-snug sm:leading-relaxed mb-3 sm:mb-4"
                 style={{
                   fontFamily: "'Cormorant Garamond', serif",
                   fontWeight: 400,
@@ -1551,7 +1551,7 @@ export default function App() {
               </p>
 
               <p
-                className="text-base sm:text-lg md:text-xl lg:text-[1.32rem] leading-relaxed mb-7"
+                className="text-sm sm:text-lg md:text-xl lg:text-[1.32rem] leading-snug sm:leading-relaxed mb-4 sm:mb-7"
                 style={{
                   fontFamily: "'Cormorant Garamond', serif",
                   fontWeight: 400,
@@ -1565,7 +1565,7 @@ export default function App() {
               </p>
 
               {/* BPI QR Stamp Frame */}
-              <div className="flex flex-col items-center my-6 gap-2.5">
+              <div className="flex flex-col items-center my-4 sm:my-6 gap-2">
                 <div
                   onClick={openGiftModal}
                   role="button"
@@ -1573,7 +1573,7 @@ export default function App() {
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ") openGiftModal();
                   }}
-                  className="group cursor-zoom-in transition-transform duration-300 hover:scale-[1.03] max-w-[270px] sm:max-w-[300px] md:max-w-[330px]"
+                  className="group cursor-zoom-in transition-transform duration-300 hover:scale-[1.03] max-w-[205px] sm:max-w-[270px] md:max-w-[330px]"
                   style={{
                     transform: "rotate(1deg)",
                   }}
@@ -1584,14 +1584,14 @@ export default function App() {
                     className="w-full h-auto object-contain mx-auto drop-shadow-xl"
                   />
                   <div
-                    className="mt-2 flex items-center justify-center gap-1.5 text-sm sm:text-base md:text-lg"
+                    className="mt-1.5 flex items-center justify-center gap-1.5 text-xs sm:text-base md:text-lg"
                     style={{
                       fontFamily: "'Cormorant Garamond', serif",
                       fontStyle: "italic",
                       color: "#8a7070",
                     }}
                   >
-                    <ZoomIn size={14} />
+                    <ZoomIn size={13} />
                     <span>Tap to enlarge QR code</span>
                   </div>
                 </div>
@@ -1600,29 +1600,29 @@ export default function App() {
                 <a
                   href="/images/bpi.webp"
                   download="Carl-Cy-BPI-InstaPay-QR.webp"
-                  className="waze-pill text-[0.64rem] sm:text-xs md:text-[0.76rem] px-4 py-2 mt-1"
+                  className="waze-pill text-[0.58rem] sm:text-xs md:text-[0.76rem] px-3.5 py-1.5 sm:px-4 sm:py-2 mt-0.5"
                 >
-                  <Download size={13} />
+                  <Download size={12} />
                   Save QR Image for Mobile Banking
                 </a>
               </div>
 
               {/* Divider */}
-              <div className="flex items-center justify-center gap-2.5 my-6">
+              <div className="flex items-center justify-center gap-2 my-4 sm:my-6">
                 <div
                   style={{
                     height: 1,
-                    width: 60,
+                    width: 48,
                     background: "linear-gradient(90deg, transparent, rgba(107,112,65,0.4))",
                   }}
                 />
-                <span className="text-sm md:text-base" style={{ color: "#722F37" }}>
+                <span className="text-xs md:text-base" style={{ color: "#722F37" }}>
                   ✦
                 </span>
                 <div
                   style={{
                     height: 1,
-                    width: 60,
+                    width: 48,
                     background: "linear-gradient(90deg, rgba(107,112,65,0.4), transparent)",
                   }}
                 />
@@ -1630,7 +1630,7 @@ export default function App() {
 
               {/* Closing Sign-off */}
               <p
-                className="text-lg sm:text-xl md:text-2xl lg:text-[1.6rem] mb-1"
+                className="text-base sm:text-xl md:text-2xl lg:text-[1.6rem] mb-0.5"
                 style={{
                   fontFamily: "'Cormorant Garamond', serif",
                   fontStyle: "italic",
@@ -1642,7 +1642,7 @@ export default function App() {
               </p>
 
               <p
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem]"
+                className="text-3xl sm:text-5xl md:text-6xl lg:text-[4rem]"
                 style={{
                   fontFamily: "'Great Vibes', cursive",
                   color: "#722F37",
@@ -1654,7 +1654,7 @@ export default function App() {
               </p>
 
               <p
-                className="text-[0.65rem] sm:text-xs md:text-sm mt-2"
+                className="text-[0.58rem] sm:text-xs md:text-sm mt-1.5"
                 style={{
                   fontFamily: "'Jost', sans-serif",
                   fontWeight: 300,
@@ -1670,7 +1670,7 @@ export default function App() {
         </div>
 
         {/* Makati Prenup FilmStrip Gallery */}
-        <div className="relative z-20 mt-14 sm:mt-16 md:mt-20">
+        <div className="relative z-20 mt-10 sm:mt-14 md:mt-20">
           <FilmStrip />
         </div>
 

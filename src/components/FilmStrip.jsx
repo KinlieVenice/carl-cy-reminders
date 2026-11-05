@@ -94,7 +94,7 @@ export default function FilmStrip() {
                     <div key={idx} className="w-2 h-2 bg-white rounded-sm opacity-80" />
                   ))}
                 </div>
-                <div className="w-36 h-36 sm:w-44 sm:h-44 overflow-hidden">
+                <div className="w-28 h-28 sm:w-38 sm:h-38 md:w-44 md:h-44 overflow-hidden">
                   <img
                     src={src}
                     alt={`Carl & Cy Makati Prenup ${i + 1}`}
